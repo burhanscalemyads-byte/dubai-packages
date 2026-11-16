@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dubai Tour Packages from ₹34,999 | Glabol</title>
+<meta name="description" content="Dubai tour packages with hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and UAE visa. 3 to 6 nights from ₹34,999 per person. Customise any package and get a free quote from Glabol.">
+<meta name="theme-color" content="#0B2742">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dubai Tour Packages from ₹34,999 | Glabol">
+<meta property="og:description" content="Hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and visa in one package. Customise it and get a free quote.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=70">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://videos.pexels.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+/* ==================================================================
+   SETTINGS: check these before the page goes live
+   ------------------------------------------------------------------
+   LEAD_ENDPOINT  URL that receives each lead as JSON (CRM web-form or
+                  webhook). Empty = preview mode: nothing is sent.
+   GTM_ID         Glabol's Google Tag Manager container (GTM-XXXXXXX).
+   PHONE / WHATSAPP  Digits only, with country code.
+   RATING / REVIEWS  Shown in the trust strip. Keep these true.
+   EMI_MONTHS     Set to 3, 6 etc. ONLY if no-cost EMI is really offered.
+                  0 = no EMI line on the cards.
+   HERO_VIDEO     Background clips (Pexels, free licence). Best practice:
+                  host copies on Glabol's own server/CDN and change the URLs.
+   PACKAGES       PLACEHOLDER trips and prices. Replace with Glabol's
+                  real Dubai packages before going live.
+   ================================================================== */
+window.GLABOL_DUBAI = {
+  LEAD_ENDPOINT: "",
+  GTM_ID: "",
+  FORM_NAME: "dubai_lp_v2",
+  LEAD_VALUE: 0,
+  PHONE: "918962245021",
+  PHONE_DISPLAY: "+91 89622 45021",
+  WHATSAPP: "918962245021",
+  WHATSAPP_TEXT: "Hi Glabol, I'd like a quote for a Dubai package.",
+  EMAIL: "info@glabol.com",
+  RATING: "4.5",
+  REVIEWS: "1,600+",
+  SINCE: "2019",
+  EMI_MONTHS: 0,
+  PRIVACY_URL: "https://glabol.com/privacy-policy",
+  TERMS_URL: "https://glabol.com/terms-and-conditions",
+  CANCELLATION_URL: "https://glabol.com/cancellation-policy",
+
+  HERO_VIDEO: {
+    desktop:    "https://videos.pexels.com/video-files/35046253/14845839_1280_720_30fps.mp4",
+    desktopHD:  "https://videos.pexels.com/video-files/35046253/14845840_1920_1080_30fps.mp4",
+    mobile:     "https://videos.pexels.com/video-files/20242130/20242130-hd_720_1280_25fps.mp4",
+    posterDesktop: "https://images.unsplash.com/photo-1686918269961-507270a5a238?auto=format&fit=crop&w=1600&q=60",
+    posterMobile:  "https://images.unsplash.com/photo-1782078292081-8fb6de1c54df?auto=format&fit=crop&w=800&q=60"
+  },
+
+  // ?trip=honeymoon | family | luxury | budget  -> headline + filter to match the ad
+  VARIANTS: {
+    honeymoon: { h1: "Dubai Honeymoon Packages", filter: ["type", "honeymoon"] },
+    family:    { h1: "Dubai Family Packages",    filter: ["type", "family"] },
+    luxury:    { h1: "Dubai Luxury Packages",    filter: ["hotel", "5"] },
+    budget:    { h1: "Dubai Packages Under ₹50k", filter: ["budget", "lt50"] }
+  },
+
+  PACKAGES: [
+    {
+      id: "weekend", name: "Dubai Weekend Getaway", nights: 3, hotel: 3, transfers: "Shared",
+      price: 34999, tags: ["couple", "friends"], flag: "Quick getaway",
+      img: "photo-1765801122549-2c11dc9cbd78", alt: "Dubai Marina towers lit up at night, with boats on the water",
+      activities: ["Dhow Cruise Dinner, Marina", "Dubai City Tour", "Desert Safari with BBQ Dinner", "Burj Khalifa At the Top"],
+      plan: [
+        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
+        ["City tour and desert safari", "Morning tour of Jumeirah Mosque, Burj Al Arab, Palm Jumeirah and the Dubai Frame. Afternoon desert safari: dune drive, camel ride, and BBQ dinner with live shows."],
+        ["Burj Khalifa and Dubai Mall", "Free morning. Evening at Burj Khalifa At the Top (124th and 125th floors), then the Dubai Fountain show."],
+        ["Fly home", "Check out and airport drop."]
+      ]
+    },
+    {
+      id: "classic", name: "Classic Dubai", nights: 4, hotel: 3, transfers: "Shared",
+      price: 44999, tags: ["couple", "family", "friends"], flag: "Best for first-timers",
+      img: "photo-1686918269961-507270a5a238", alt: "The Museum of the Future in Dubai at golden hour",
+      activities: ["Museum of the Future", "Burj Khalifa At the Top", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks"],
+      plan: [
+        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
+        ["City tour and desert safari", "Morning city tour with photo stops at Burj Al Arab and Palm Jumeirah. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
+        ["Museum of the Future and Burj Khalifa", "Morning at the Museum of the Future. Evening at Burj Khalifa At the Top and the Dubai Fountain."],
+        ["Old Dubai and Global Village", "Abra ride across Dubai Creek to the Gold and Spice Souks. Evening at Global Village (open October to May)."],
+        ["Fly home", "Check out and airport drop."]
+      ]
+    },
+    {
+      id: "honeymoon", name: "Dubai Honeymoon", nights: 4, hotel: 4, transfers: "Private",
+      price: 54999, tags: ["honeymoon", "couple"], flag: "Honeymoon pick",
+      img: "photo-1768463852019-4881a17a1c0e", alt: "A boat on the water in front of Dubai Marina towers at sunset",
+      activities: ["Burj Khalifa At the Top, sunset slot", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai Frame", "Global Village"],
+      plan: [
+        ["Arrive in Dubai", "Private airport pick-up and check-in. Evening dhow cruise dinner along Dubai Marina."],
+        ["Desert safari", "Free morning. Afternoon desert safari: dune drive, camel ride, sunset photos in the dunes and BBQ dinner."],
+        ["Burj Khalifa at sunset", "Burj Khalifa At the Top in the sunset slot, then the Dubai Fountain show at Dubai Mall."],
+        ["Dubai Frame and Global Village", "Afternoon at the Dubai Frame. Evening at Global Village (open October to May)."],
+        ["Fly home", "Check out and private airport drop."]
+      ]
+    },
+    {
+      id: "best", name: "Best of Dubai", nights: 5, hotel: 4, transfers: "Shared",
+      price: 62999, tags: ["couple", "family", "friends"], flag: "",
+      img: "photo-1512453979798-5ea266f8880c", alt: "Burj Khalifa and Downtown Dubai skyline at dusk",
+      activities: ["Burj Khalifa At the Top", "Museum of the Future", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks", "Global Village"],
+      plan: [
+        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
+        ["City tour and desert safari", "Morning Dubai city tour. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
+        ["Burj Khalifa and Dubai Mall", "Free morning for shopping. Evening at Burj Khalifa At the Top and the Dubai Fountain."],
+        ["Museum of the Future", "Morning at the Museum of the Future. Afternoon at leisure at JBR beach or Dubai Marina Walk."],
+        ["Old Dubai and Global Village", "Abra ride across Dubai Creek to the Gold and Spice Souks. Evening at Global Village (open October to May)."],
+        ["Fly home", "Check out and airport drop."]
+      ]
+    },
+    {
+      id: "family", name: "Dubai Family Fun", nights: 6, hotel: 4, transfers: "Shared",
+      price: 74999, tags: ["family"], flag: "Family pick",
+      img: "photo-1786991810391-e28ee367c3aa", alt: "Aerial view of Atlantis The Royal resort on Palm Jumeirah",
+      activities: ["Aquaventure Waterpark, Atlantis", "IMG Worlds of Adventure", "Dubai Aquarium and Underwater Zoo", "Burj Khalifa At the Top", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour"],
+      plan: [
+        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening at leisure."],
+        ["City tour and desert safari", "Morning Dubai city tour. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
+        ["Aquarium and Burj Khalifa", "Dubai Aquarium and Underwater Zoo, then Burj Khalifa At the Top and the Dubai Fountain."],
+        ["Aquaventure at Atlantis", "A full day at Aquaventure Waterpark on Palm Jumeirah."],
+        ["IMG Worlds of Adventure", "A full day at the indoor theme park, with rides for all ages."],
+        ["Shopping and dhow cruise", "Free day for the malls and souks. Evening dhow cruise dinner along Dubai Marina."],
+        ["Fly home", "Check out and airport drop."]
+      ]
+    },
+    {
+      id: "luxury", name: "Dubai Luxury Escape", nights: 5, hotel: 5, transfers: "Private",
+      price: 109999, tags: ["honeymoon", "couple"], flag: "Luxury",
+      img: "photo-1546412414-e1885259563a", alt: "Burj Al Arab hotel on the Jumeirah coast",
+      activities: ["Burj Khalifa At the Top SKY, 148th floor", "Private Desert Safari", "Aquaventure Waterpark, Atlantis", "Museum of the Future", "Dhow Cruise Dinner, Marina"],
+      plan: [
+        ["Arrive in Dubai", "Private airport pick-up and check-in at a 5-star beach resort. Evening at leisure."],
+        ["Private desert safari", "Afternoon desert safari in a private 4x4, with dinner at a desert camp."],
+        ["Burj Khalifa SKY", "Burj Khalifa At the Top SKY on the 148th floor, then the Dubai Fountain show."],
+        ["Atlantis day", "Aquaventure Waterpark, or a slow beach day at your resort."],
+        ["Museum of the Future and dhow dinner", "Morning at the Museum of the Future. Evening dhow cruise dinner along Dubai Marina."],
+        ["Fly home", "Check out and private airport drop."]
+      ]
+    }
+  ]
+};
+</script>
+
+<script>
+/* Google Tag Manager (loads only when GTM_ID is set) */
+(function(){
+  var id = window.GLABOL_DUBAI.GTM_ID;
+  window.dataLayer = window.dataLayer || [];
+  if (!id) return;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer',id);
+})();
+</script>
+
+<style>
+:root{
+  --green:#09B367;
+  --green-d:#06955A;
+  --green-50:#E8F8F0;
+  --navy:#0B2742;
+  --navy-2:#0F3254;
+  --navy-3:#071B30;
+  --ink:#21242C;
+  --title:#1F2937;
+  --ink-2:#4B5263;
+  --ink-3:#6B7280;
+  --bg:#F3F4FB;
+  --line:#E4E7F1;
+  --line-2:#C7CDE0;
+  --purple:#4F3BD8;
+  --lavender:#ECEAFD;
+  --lavender-ink:#3A2BB0;
+  --star:#F5A524;
+  --white:#FFFFFF;
+  --error:#C81E3A;
+  --r:12px;
+  --pad:clamp(16px,3.5vw,32px);
+  --max:1180px;
+  --font:"Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid #5FD3A0;outline-offset:2px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:12px 20px;border:0;border-radius:8px;cursor:pointer;
+  font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;white-space:nowrap;
+  transition:background-color .15s, box-shadow .15s, transform .1s, color .15s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-d)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-line{background:#fff;color:var(--title);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--title)}
+.btn-pill{border-radius:999px}
+.btn-block{width:100%}
+.btn[disabled]{opacity:.7;cursor:progress}
+.link{background:none;border:0;padding:0;cursor:pointer;font-weight:700;color:var(--title);text-decoration:underline;text-underline-offset:3px;font-size:14px}
+.link:hover{color:var(--green-d)}
+
+/* ---------- Header ---------- */
+.top{position:fixed;top:0;left:0;right:0;z-index:40;transition:background-color .2s, box-shadow .2s}
+.top.is-solid{background:var(--navy);box-shadow:0 6px 20px rgba(7,27,48,.25)}
+.top-in{display:flex;align-items:center;gap:10px;height:64px}
+.logo img{height:22px;width:auto}
+.top-r{margin-left:auto;display:flex;align-items:center;gap:6px}
+.top-ico{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 10px;border-radius:999px;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+.top-ico:hover{background:rgba(255,255,255,.1)}
+.top-ico .lbl{display:none}
+.top .btn{min-height:40px;padding:9px 16px;font-size:14px}
+@media (min-width:860px){
+  .top-in{height:72px}
+  .logo img{height:26px}
+  .top-ico .lbl{display:inline}
+}
+@media (max-width:420px){.top .btn .lbl-long{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:var(--bg);isolation:isolate}
+.hero-media{position:absolute;left:0;right:0;top:0;height:470px;overflow:hidden;background:#0A1B2E;z-index:-1}
+.hero-media video,.hero-media .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(6,16,30,.55) 0%, rgba(6,16,30,.35) 45%, rgba(6,16,30,.82) 100%);
+}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;padding-top:92px;padding-bottom:8px}
+.hero-copy{color:#fff;text-align:center;min-height:300px;display:flex;flex-direction:column;align-items:center}
+.rating-pill svg{display:inline-block;vertical-align:-2px;margin-right:6px}
+.rating-pill{
+  display:inline-block;padding:6px 12px;border-radius:999px;
+  background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  font-size:13px;font-weight:600;color:#fff;
+}
+.rating-pill b{font-weight:800}
+.hero-h1{margin:14px 0 0;font-size:clamp(32px,4.4vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+.hero-sub{margin:10px 0 0;max-width:46ch;font-size:clamp(15px,1.4vw,18px);color:rgba(255,255,255,.88);line-height:1.5}
+.hero-ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;list-style:none;margin:16px 0 0;padding:0;font-size:14px;font-weight:600;color:#fff}
+@media (max-width:519px){.hero-ticks{display:none}.hero-copy{min-height:250px}.hero-media{height:420px}}
+.hero-ticks li{display:inline-flex;align-items:center;gap:6px}
+.hero-ctas{display:none}
+.from{margin:16px 0 0;font-size:14px;color:rgba(255,255,255,.85)}
+.from b{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.01em}
+
+@media (min-width:1000px){
+  .hero{background:#0A1B2E}
+  .hero-media{height:100%}
+  .hero-media::after{
+    background:
+      linear-gradient(90deg, rgba(6,16,30,.86) 0%, rgba(6,16,30,.6) 46%, rgba(6,16,30,.25) 100%),
+      linear-gradient(180deg, rgba(6,16,30,.5) 0%, rgba(6,16,30,0) 30%);
+  }
+  .hero-in{grid-template-columns:minmax(0,1fr) 420px;gap:48px;align-items:center;padding-top:112px;padding-bottom:64px;min-height:640px}
+  .hero-copy{text-align:left;align-items:flex-start;min-height:0}
+  .hero-ticks{justify-content:flex-start}
+  .hero-ctas{display:flex;gap:12px;margin-top:24px}
+  .hero-ctas .btn{min-height:50px;padding:14px 24px;font-size:16px}
+}
+
+/* ---------- Quote card (hero + popup) ---------- */
+.qcard{
+  position:relative;background:#fff;color:var(--ink);border-radius:14px;
+  box-shadow:0 24px 60px -24px rgba(6,16,30,.45), 0 0 0 1px rgba(11,39,66,.06);
+  scroll-margin-top:84px;overflow:hidden;
+}
+.qflag{
+  position:absolute;left:0;top:16px;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 18px 5px 14px;background:#7BE495;color:#073B22;font-size:12px;font-weight:800;letter-spacing:.02em;
+  clip-path:polygon(0 0,100% 0,calc(100% - 10px) 50%,100% 100%,0 100%);
+}
+.qbody{padding:52px 20px 18px}
+@media (min-width:520px){.qbody{padding:54px 24px 20px}}
+.qtitle{margin:0;font-size:21px;font-weight:800;color:var(--title);letter-spacing:-.01em;line-height:1.25}
+.qlede{margin:4px 0 0;font-size:14px;color:var(--ink-3)}
+.qpkg{display:flex;align-items:center;gap:10px;margin:12px 0 0;padding:8px 8px 8px 12px;border-radius:10px;background:var(--green-50);font-size:14px;color:var(--ink-2)}
+.qpkg b{color:var(--title)}
+.qpkg button{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--ink-2)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.fld{display:flex;flex-direction:column;gap:5px;min-width:0}
+.fld-wide{grid-column:span 2}
+.fld label{font-size:13px;font-weight:700;color:var(--ink-2)}
+.ctl{
+  width:100%;height:48px;padding:0 12px;border:1.5px solid var(--line-2);border-radius:8px;background:#fff;
+  font-size:16px;font-weight:500;color:var(--ink);-webkit-appearance:none;appearance:none;
+  transition:border-color .15s, box-shadow .15s;
+}
+.ctl::placeholder{color:#9AA1B2}
+.ctl:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(9,179,103,.18)}
+select.ctl{
+  padding-right:34px;cursor:pointer;text-overflow:ellipsis;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5l3.5 3.5 3.5-3.5' fill='none' stroke='%234B5263' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+}
+select.ctl:invalid{color:#9AA1B2}
+select.ctl option{color:var(--ink)}
+.tel{position:relative}
+.tel span{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--ink-3);pointer-events:none}
+.tel .ctl{padding-left:46px}
+.fld.bad .ctl{border-color:var(--error)}
+.fld-err{font-size:12.5px;font-weight:700;color:var(--error);line-height:1.3}
+.qsubmit{margin-top:14px;min-height:52px;font-size:16px}
+.consent{margin:8px 0 0;font-size:12px;line-height:1.45;color:var(--ink-3)}
+.form-err{margin:10px 0 0;padding:9px 12px;border-radius:8px;background:#FDECEF;color:var(--error);font-size:13.5px;font-weight:700}
+.qstrip{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--lavender);color:var(--lavender-ink);font-size:13px;font-weight:700;text-align:center}
+
+.done-badge{width:44px;height:44px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.done-title{margin:12px 0 0;font-size:21px;font-weight:800;color:var(--title);line-height:1.25}
+.done-text{margin:6px 0 0;font-size:15px;color:var(--ink-2)}
+.extra{margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--line)}
+.extra-intro{margin:0;font-size:14px;font-weight:800;color:var(--title)}
+.extra fieldset{border:0;margin:10px 0 0;padding:0;min-width:0}
+.extra legend{padding:0;margin-bottom:6px;font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  min-height:36px;padding:7px 12px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line-2);background:#fff;font-size:13.5px;font-weight:700;color:var(--ink-2);
+  transition:background-color .15s,border-color .15s,color .15s;
+}
+.chip:hover{border-color:var(--title)}
+.chip[aria-pressed="true"]{background:var(--green-50);border-color:var(--green);color:var(--green-d)}
+.extra-saved{margin:8px 0 0;font-size:12.5px;font-weight:700;color:var(--green-d);min-height:1.3em}
+.done .btn-line{margin-top:12px}
+
+/* ---------- Trust strip ---------- */
+.trust{background:var(--navy);color:#fff}
+.trust-in{
+  display:flex;gap:28px;align-items:center;overflow-x:auto;scrollbar-width:none;
+  padding-top:16px;padding-bottom:16px;
+}
+.trust-in::-webkit-scrollbar{display:none}
+.trust-item{display:flex;align-items:center;gap:10px;flex:none;font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.85)}
+.trust-item b{display:block;color:#fff;font-size:15px;font-weight:800}
+.trust-ico{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center}
+@media (min-width:1000px){.trust-in{justify-content:space-between;padding-top:18px;padding-bottom:18px}}
+@media (max-width:999px){.hero-in{padding-bottom:24px}}
+
+/* ---------- Listing ---------- */
+.listing{background:var(--bg);padding:clamp(32px,5vw,56px) 0 clamp(48px,6vw,72px)}
+.list-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 20px;margin-bottom:18px}
+.h2{margin:0;font-size:clamp(24px,2.6vw,32px);line-height:1.2;font-weight:800;color:var(--title);letter-spacing:-.015em}
+.h2-sub{margin:6px 0 0;font-size:15px;color:var(--ink-3)}
+.count{font-size:14px;font-weight:700;color:var(--ink-3)}
+.list-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+@media (min-width:1000px){.list-grid{grid-template-columns:250px minmax(0,1fr)}}
+
+.filters{display:none}
+@media (min-width:1000px){
+  .filters{display:block;position:sticky;top:92px;background:#fff;border-radius:var(--r);padding:18px 18px 8px}
+}
+.fgroup{padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid var(--line)}
+.fgroup:last-of-type{border-bottom:0;margin-bottom:0}
+.fgroup h3{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0A7A48}
+.fcheck{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:14.5px;color:var(--ink);cursor:pointer}
+.fcheck input{width:18px;height:18px;margin:0;accent-color:var(--green);cursor:pointer}
+.fclear{display:block;margin:4px 0 10px}
+
+.fbar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--pad)) 14px;padding:2px var(--pad) 4px}
+.fbar::-webkit-scrollbar{display:none}
+.fbar .chip{flex:none;background:#fff}
+@media (min-width:1000px){.fbar{display:none}}
+
+.cards{display:grid;gap:18px}
+.pc{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 rgba(11,39,66,.04)}
+.pc-main{display:grid;grid-template-columns:minmax(0,1fr)}
+@media (min-width:720px){.pc-main{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
+.pc-img{position:relative;margin:0;aspect-ratio:16/10;background:#DDE1EE;overflow:hidden}
+@media (min-width:720px){.pc-img{aspect-ratio:auto;min-height:230px}}
+.pc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.pc:hover .pc-img img{transform:scale(1.04)}
+.pc-flag{
+  position:absolute;left:0;top:14px;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 16px 5px 10px;background:#7BE495;color:#073B22;font-size:12px;font-weight:800;
+  clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%);
+}
+.pc-len{position:absolute;right:12px;bottom:12px;padding:5px 10px;border-radius:6px;background:rgba(6,16,30,.72);color:#fff;font-size:12.5px;font-weight:800}
+.pc-body{display:flex;flex-direction:column;padding:16px 16px 16px}
+@media (min-width:720px){.pc-body{padding:18px 20px 18px}}
+.pc-name{margin:0;font-size:18px;font-weight:800;color:var(--title);line-height:1.3}
+.pc-nights{margin:4px 0 0;font-size:14px;color:var(--ink-2)}
+.pc-nights b{color:var(--title)}
+.pc-inc{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px;color:var(--ink-2)}
+.pc-inc li{display:inline-flex;align-items:center;gap:5px}
+.pc-inc .st{color:var(--star)}
+.pc-price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.pc-body .pc-price-row{margin-top:16px}
+@media (min-width:720px){.pc-body .pc-price-row{margin-top:auto}}
+.pc-price{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+@media (min-width:720px){.pc-price{align-items:flex-end;margin-left:auto}}
+.pc-price b{font-size:24px;font-weight:800;color:#17181C;letter-spacing:-.01em;line-height:1.1;font-variant-numeric:tabular-nums}
+.pc-price small{font-size:12.5px;color:var(--ink-3)}
+.emi{display:inline-block;padding:3px 9px;border-radius:999px;background:var(--purple);color:#fff;font-size:11.5px;font-weight:800}
+.pc-price-row .btn{min-height:46px;padding:12px 20px}
+.pc-foot{display:flex;align-items:center;gap:10px 16px;padding:10px 16px;background:#EEF0F7;font-size:13px;color:var(--ink-2)}
+@media (min-width:720px){.pc-foot{padding:10px 20px}}
+.pc-foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 16px;min-width:0;flex:1}
+.pc-foot li{display:block;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pc-foot li::before{content:"";display:inline-block;vertical-align:middle;width:4px;height:4px;margin-right:7px;border-radius:50%;background:var(--ink-3)}
+.pc-foot li:nth-child(n+2){display:none}
+@media (min-width:720px){.pc-foot li:nth-child(-n+3){display:block}}
+.pc-foot .link{flex:none;font-size:13px}
+
+.custom{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:18px 20px;border-radius:var(--r);
+  background:linear-gradient(90deg,#0B2742,#11406B);color:#fff;
+}
+.custom-ico{flex:none;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center}
+.custom-txt{flex:1;min-width:220px}
+.custom-txt b{display:block;font-size:17px;font-weight:800}
+.custom-txt span{display:block;margin-top:2px;font-size:14px;color:rgba(255,255,255,.82)}
+.empty{padding:36px 20px;border-radius:var(--r);background:#fff;text-align:center}
+.empty b{display:block;font-size:17px;color:var(--title)}
+.empty p{margin:6px 0 14px;color:var(--ink-3);font-size:14.5px}
+.list-note{margin:16px 0 0;font-size:13px;color:var(--ink-3)}
+
+/* ---------- Sections ---------- */
+.sec{padding:clamp(48px,6vw,80px) 0}
+.sec-bg{background:var(--bg)}
+.sec-head{max-width:720px;margin:0 0 clamp(22px,3vw,32px)}
+
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.why{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.why-item{padding:18px;border-radius:var(--r);background:#fff;border:1px solid var(--line)}
+.why-ico{width:42px;height:42px;border-radius:50%;background:var(--green-50);display:grid;place-items:center;color:var(--green-d)}
+.why-item h3{margin:12px 0 0;font-size:16px;font-weight:800;color:var(--title);line-height:1.3}
+.why-item p{margin:4px 0 0;font-size:14px;color:var(--ink-2);line-height:1.5}
+
+.todo{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:190px;grid-auto-flow:dense}
+@media (min-width:900px){.todo{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;gap:16px}}
+.tile{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:#DDE1EE;color:#fff;min-width:0}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,30,0) 35%,rgba(6,16,30,.55) 62%,rgba(6,16,30,.9))}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px}
+.tile b{display:block;font-size:15.5px;font-weight:800;line-height:1.25}
+.tile span{display:none;margin-top:3px;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.85)}
+.tile-tall{grid-row:span 2}
+.tile-wide{grid-column:span 2}
+.tile-tall span,.tile-wide span{display:block}
+@media (min-width:900px){.tile figcaption{padding:16px}.tile b{font-size:17px}.tile span{display:block}}
+
+.incl{display:grid;gap:16px}
+@media (min-width:860px){.incl{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+.incl-card{background:#fff;border-radius:var(--r);border:1px solid var(--line);padding:22px}
+.incl-h{margin:0 0 12px;font-size:17px;font-weight:800;color:var(--title)}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ticks li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;color:var(--ink-2);line-height:1.45}
+.ticks svg{margin-top:2px}
+.ticks b{color:var(--title)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:22px;counter-reset:s}
+@media (min-width:860px){.steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}}
+.steps li{position:relative;padding-left:56px;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;display:grid;place-items:center}
+@media (min-width:860px){
+  .steps li{padding-left:0;padding-top:56px}
+  .steps li::after{content:"";position:absolute;top:20px;left:52px;right:-12px;border-top:2px dashed var(--line-2)}
+  .steps li:last-child::after{display:none}
+}
+.steps h3{margin:0;font-size:16.5px;font-weight:800;color:var(--title)}
+.steps p{margin:4px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 clamp(32px,5vw,48px)}
+@media (min-width:900px){.facts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.facts div{background:var(--bg);border-radius:var(--r);padding:16px;min-width:0}
+.facts dt{font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.facts dd{margin:4px 0 0;font-size:16.5px;font-weight:800;color:var(--title);line-height:1.3}
+.facts dd small{display:block;margin-top:4px;font-size:13.5px;font-weight:500;color:var(--ink-2);line-height:1.45}
+.faq-grid{display:grid;gap:18px}
+@media (min-width:900px){.faq-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:40px}}
+.faq-side p{margin:8px 0 0;color:var(--ink-2);font-size:15px}
+.faq-side a{color:var(--green-d);font-weight:800;text-decoration:none}
+.faq-side a:hover{text-decoration:underline}
+.faq{display:grid;gap:10px}
+.faq details{background:#fff;border-radius:var(--r);border:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;list-style:none;font-weight:700;font-size:15.5px;color:var(--title)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";flex:none;width:20px;height:20px;transition:transform .2s;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M5 7.5l5 5 5-5' fill='none' stroke='%231F2937' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat;
+}
+.faq details[open] summary::after{transform:rotate(180deg)}
+.faq .ans{padding:0 18px 16px;color:var(--ink-2);font-size:15px}
+.faq .ans p{margin:0}
+.faq .ans a{color:var(--green-d);font-weight:700}
+
+.closing{position:relative;overflow:hidden;background:var(--navy);color:#fff;padding:clamp(44px,6vw,72px) 0}
+.closing::before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1782078292081-8fb6de1c54df?auto=format&fit=crop&w=1600&h=600&q=50") center 75%/cover no-repeat;opacity:.22}
+.closing-in{position:relative;display:grid;gap:20px;align-items:center}
+@media (min-width:860px){.closing-in{grid-template-columns:minmax(0,1fr) auto;gap:40px}}
+.closing h2{margin:0;font-size:clamp(26px,3.2vw,40px);line-height:1.15;font-weight:800;letter-spacing:-.015em;max-width:22ch}
+.closing p{margin:8px 0 0;color:rgba(255,255,255,.85);font-size:16px}
+.closing-actions{display:flex;flex-wrap:wrap;gap:12px}
+.closing-actions .btn{min-height:52px;padding:14px 24px;font-size:16px}
+
+.foot{background:var(--navy-3);color:rgba(255,255,255,.7);font-size:14.5px;padding:44px 0 36px}
+.foot-in{display:grid;gap:26px}
+@media (min-width:860px){.foot-in{grid-template-columns:1.3fr 1fr 1fr;gap:40px}}
+.foot img{height:24px;width:auto}
+.foot p{margin:12px 0 0;max-width:40ch}
+.foot-h{margin:0 0 10px;font-size:14px;font-weight:800;color:#fff}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{color:rgba(255,255,255,.82);text-decoration:none}
+.foot a:hover{color:#fff;text-decoration:underline}
+.foot-base{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:rgba(255,255,255,.5)}
+@media (max-width:899px){.foot{padding-bottom:104px}}
+
+/* ---------- Mobile action bar ---------- */
+.mbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:8px;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 24px rgba(11,39,66,.14);
+  transform:translateY(115%);transition:transform .25s ease;
+}
+.mbar.is-on{transform:none}
+.mbar .btn{min-height:48px;padding:10px 14px}
+@media (min-width:900px){.mbar{display:none}}
+
+/* ---------- Dialogs ---------- */
+.dlg{
+  border:0;padding:0;margin:auto;background:transparent;color:var(--ink);
+  width:min(560px, calc(100% - 20px));max-height:calc(100dvh - 20px);overflow:visible;
+}
+.dlg::backdrop{background:rgba(6,16,30,.6);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.dlg-x{
+  position:absolute;right:12px;top:12px;z-index:3;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+  background:#F1F3F9;color:var(--title);display:grid;place-items:center;
+}
+.dlg-x:hover{background:#E4E7F1}
+.lead-dlg .qcard{max-height:calc(100dvh - 20px);overflow:auto}
+
+.itin{width:min(680px, calc(100% - 20px));background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 40px 90px -20px rgba(0,0,0,.5)}
+.itin[open]{display:flex;flex-direction:column}
+.itin-top{position:relative;flex:none;height:160px;background:#0A1B2E;color:#fff}
+.itin-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.itin-top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,30,.1),rgba(6,16,30,.85))}
+.itin-titles{position:absolute;left:20px;right:64px;bottom:14px;z-index:1}
+.itin-title{margin:0;font-size:22px;font-weight:800;line-height:1.2}
+.itin-route{margin:2px 0 0;font-size:14px;color:rgba(255,255,255,.85)}
+.itin .dlg-x{background:rgba(255,255,255,.92)}
+.itin-body{flex:1;min-height:0;overflow:auto;padding:4px 20px 16px;overscroll-behavior:contain}
+.days{list-style:none;margin:0;padding:0}
+.days li{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.days .dn{font-size:12.5px;font-weight:800;color:var(--green-d);padding-top:2px}
+.days h4{margin:0;font-size:15.5px;font-weight:800;color:var(--title)}
+.days p{margin:3px 0 0;font-size:14.5px;color:var(--ink-2)}
+.itin-small{margin:14px 0 0;font-size:13px;color:var(--ink-3)}
+.itin-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:#fff}
+.itin-foot .pc-price{align-items:flex-start;margin:0}
+
+.preview{position:fixed;left:12px;bottom:12px;z-index:60;max-width:min(300px,calc(100vw - 24px));padding:8px 11px;border-radius:8px;background:#FFF7D6;color:#4A3B00;font-size:12px;line-height:1.35;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+@media (max-width:899px){.preview{bottom:84px}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="logo" href="https://glabol.com" aria-label="Glabol home"><img src="assets/glabol-logo-white.png" alt="Glabol" width="118" height="26"></a>
+    <div class="top-r">
+      <a class="top-ico" id="topCall" href="tel:+918962245021" data-track="call_click">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="currentColor"/></svg>
+        <span class="lbl" id="topCallLbl">+91 89622 45021</span><span class="vh">Call Glabol</span>
+      </a>
+      <a class="top-ico" id="topWa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">
+        <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
+        <span class="lbl">WhatsApp</span><span class="vh">Chat with Glabol on WhatsApp</span>
+      </a>
+      <button class="btn btn-green btn-pill" type="button" data-open-lead="header">
+        <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="currentColor"/></svg>
+        <span>Request<span class="lbl-long"> callback</span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO (video) ============ -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-media" aria-hidden="true">
+      <img class="poster" id="heroPoster" alt="" fetchpriority="high">
+      <video id="heroVideo" muted loop playsinline preload="none" hidden></video>
+    </div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="rating-pill"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5z" fill="#F5A524"/></svg><b class="js-rating">4.5</b> on Google, <span class="js-reviews">1,600+</span> reviews</span>
+        <h1 class="hero-h1" id="h1">Dubai Tour Packages</h1>
+        <p class="hero-sub">Hotels, Burj Khalifa, desert safari, dhow cruise dinner, transfers and visa in one booking. Customise every day of your trip.</p>
+        <ul class="hero-ticks">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>UAE visa</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hotels</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Transfers</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sightseeing</li>
+        </ul>
+        <p class="from">Starting at <b id="fromPrice">₹34,999</b> per person</p>
+        <div class="hero-ctas">
+          <a class="btn btn-green" href="#packages">Explore packages</a>
+          <a class="btn btn-ghost js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="qcard" id="quote">
+        <div class="js-form-slot" data-form="hero"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <div class="trust">
+    <div class="wrap trust-in">
+      <div class="trust-item">
+        <span class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 01-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path fill="#fff" opacity=".8" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0012 22z"/><path fill="#fff" opacity=".6" d="M6.4 14a6 6 0 010-3.9V7.4H3.1a10 10 0 000 9.2z"/><path fill="#fff" opacity=".9" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A9.7 9.7 0 0012 2a10 10 0 00-8.9 5.4l3.3 2.6C7.2 7.7 9.4 6 12 6z"/></svg></span>
+        <span><b><span class="js-rating">4.5</span> ★</b>from <span class="js-reviews">1,600+</span> Google reviews</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 5 5.6.6-4.2 3.8 1.2 5.5L12 14.2 7 16.9l1.2-5.5L4 7.6l5.6-.6z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 17l-1.5 5L12 20l5.5 2L16 17" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+        <span><b>Since <span class="js-since">2019</span></b>planning trips abroad</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="10" r="3" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M9 16h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span><b>UAE visa</b>filed by our team</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg></span>
+        <span><b>On WhatsApp</b>through your trip</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PACKAGES ============ -->
+  <section class="listing" id="packages" aria-labelledby="pkgTitle">
+    <div class="wrap">
+      <div class="list-head">
+        <div>
+          <h2 class="h2" id="pkgTitle">Dubai packages</h2>
+          <p class="h2-sub">Prices per person on twin sharing, without international flights.</p>
+        </div>
+        <span class="count" id="pkgCount" aria-live="polite"></span>
+      </div>
+      <div class="list-grid">
+        <aside class="filters" id="filters" aria-label="Filter packages"></aside>
+        <div>
+          <div class="fbar" id="fbar" role="group" aria-label="Filter packages"></div>
+          <div class="cards" id="cards"></div>
+          <p class="list-note">Every package can be changed: add nights, upgrade hotels or swap activities. Your trip planner sends the final plan and price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY GLABOL ============ -->
+  <section class="sec" aria-labelledby="whyTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="h2" id="whyTitle">Why book Dubai with Glabol</h2>
+      </header>
+      <div class="why">
+        <div class="why-item">
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Visa handled</h3><p>Send passport scans. We file your UAE tourist visa.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h3>Hotels you pick</h3><p>3, 4 or 5-star, in the area that suits your plans.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="7" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+          <h3>Every day customisable</h3><p>Add nights, swap activities, change the pace.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h3>One trip planner</h3><p>The same person from your first call to your flight home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THINGS TO DO ============ -->
+  <section class="sec sec-bg" aria-labelledby="todoTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="h2" id="todoTitle">Top things to do in Dubai</h2>
+        <p class="h2-sub">The big sights are in every package. The rest depends on how many nights you pick.</p>
+      </header>
+      <div class="todo">
+        <figure class="tile tile-tall">
+          <img src="https://images.unsplash.com/photo-1634007626524-f47fa37810a7?auto=format&fit=crop&w=700&h=1000&q=70" alt="Burj Khalifa lit up above the Downtown Dubai skyline at night" loading="lazy" width="700" height="1000">
+          <figcaption><b>Burj Khalifa At the Top</b><span>Go up in the evening and watch the city lights come on below you.</span></figcaption>
+        </figure>
+        <figure class="tile tile-wide">
+          <img src="https://images.unsplash.com/photo-1588310558566-b983c7d257e4?auto=format&fit=crop&w=1100&h=560&q=70" alt="A 4x4 driving over red sand dunes in the Dubai desert" loading="lazy" width="1100" height="560">
+          <figcaption><b>Desert safari</b><span>Dune drive in a 4x4, a camel ride, and a BBQ dinner with live shows in a desert camp.</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1579524655638-351438cb80d2?auto=format&fit=crop&w=600&h=560&q=70" alt="Wooden dhows on Dubai Creek" loading="lazy" width="600" height="560">
+          <figcaption><b>Dhow cruise dinner</b><span>Dinner on a wooden dhow, past the Marina towers.</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1667592441284-b590021411e3?auto=format&fit=crop&w=600&h=560&q=70" alt="The Museum of the Future, a ring covered in Arabic calligraphy" loading="lazy" width="600" height="560">
+          <figcaption><b>Museum of the Future</b><span>The calligraphy-covered ring on Sheikh Zayed Road.</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1786288359548-a9140247b267?auto=format&fit=crop&w=600&h=560&q=70" alt="Burj Al Arab rising above palm trees and a canal" loading="lazy" width="600" height="560">
+          <figcaption><b>Jumeirah and Burj Al Arab</b><span>Beaches, the sail-shaped hotel and Palm Jumeirah.</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&w=600&h=560&q=70" alt="Camels with decorated saddles resting on desert sand" loading="lazy" width="600" height="560">
+          <figcaption><b>Camel ride</b><span>Part of every desert safari, with a henna and photo stop.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INCLUSIONS ============ -->
+  <section class="sec" aria-labelledby="inclTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="h2" id="inclTitle">What's included, and what's not</h2>
+        <p class="h2-sub">You see the full list before you pay anything.</p>
+      </header>
+      <div class="incl">
+        <div class="incl-card">
+          <h3 class="incl-h">Included in every package</h3>
+          <ul class="ticks">
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8F8F0"/><path d="M6 10.3l2.7 2.6 5.3-5.4" fill="none" stroke="#09B367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Hotel with daily breakfast</b>, twin sharing</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8F8F0"/><path d="M6 10.3l2.7 2.6 5.3-5.4" fill="none" stroke="#09B367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>UAE tourist visa</b>, filed by our team</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8F8F0"/><path d="M6 10.3l2.7 2.6 5.3-5.4" fill="none" stroke="#09B367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Airport pick-up and drop</b>, and transfers for all sightseeing</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8F8F0"/><path d="M6 10.3l2.7 2.6 5.3-5.4" fill="none" stroke="#09B367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Entry tickets</b> for everything in your day-by-day plan</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#E8F8F0"/><path d="M6 10.3l2.7 2.6 5.3-5.4" fill="none" stroke="#09B367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Dinners</b> on the desert safari and dhow cruise</span></li>
+          </ul>
+        </div>
+        <div class="incl-card">
+          <h3 class="incl-h">Not included</h3>
+          <ul class="ticks">
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F1F2F7"/><path d="M6.5 10h7" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg><span>International flights. We can add them from your city.</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F1F2F7"/><path d="M6.5 10h7" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg><span>GST and TCS, as applicable</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F1F2F7"/><path d="M6.5 10h7" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg><span>Dubai Tourism Dirham fee, paid at the hotel</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F1F2F7"/><path d="M6.5 10h7" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg><span>Lunches, and meals not listed in your plan</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#F1F2F7"/><path d="M6.5 10h7" stroke="#6B7280" stroke-width="2" stroke-linecap="round"/></svg><span>Travel insurance, early check-in and late check-out</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="sec sec-bg" aria-labelledby="stepsTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="h2" id="stepsTitle">How booking works</h2>
+      </header>
+      <ol class="steps">
+        <li><h3>Share your dates</h3><p>Fill in the form or call us. It takes under a minute.</p></li>
+        <li><h3>Get your plan and price</h3><p>Your trip planner calls, then sends a day-by-day plan with the full cost on WhatsApp.</p></li>
+        <li><h3>Book with 25%</h3><p>Pay 25% to confirm. The rest is due 30 days before you fly.</p></li>
+        <li><h3>Fly to Dubai</h3><p>Your visa, hotel and tour vouchers reach you before the trip.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ GOOD TO KNOW + FAQ ============ -->
+  <section class="sec" aria-labelledby="knowTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="h2" id="knowTitle">Good to know before you go</h2>
+      </header>
+      <dl class="facts">
+        <div><dt>Best time to go</dt><dd>November to March<small>Pleasant days and cool evenings. June to September is very hot, and hotels cost less.</small></dd></div>
+        <div><dt>Flight time</dt><dd>3 to 4.5 hours<small>Direct flights from most Indian metros.</small></dd></div>
+        <div><dt>Time difference</dt><dd>1.5 hours behind India<small>Noon in Delhi is 10:30 am in Dubai.</small></dd></div>
+        <div><dt>Visa</dt><dd>UAE tourist visa<small>Most Indian passports need one. Passport valid for 6 months.</small></dd></div>
+      </dl>
+      <div class="faq-grid">
+        <div class="faq-side">
+          <h3 class="h2" style="font-size:22px">Questions people ask</h3>
+          <p>Something else? Call <a class="js-call js-phone-text" href="tel:+918962245021" data-track="call_click">+91 89622 45021</a> or <a class="js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">message us on WhatsApp</a>.</p>
+        </div>
+        <div class="faq">
+          <details><summary>Are flights included?</summary><div class="ans"><p>Package prices don't include international flights, so you can fly from any city or use your own miles. Tell us where you're flying from and we'll add flights to your quote.</p></div></details>
+          <details><summary>Can I change the itinerary?</summary><div class="ans"><p>Yes. Every package is a starting point. Add or drop nights, upgrade hotels, or swap an activity for a theme park or beach day. Your trip planner prices each change.</p></div></details>
+          <details><summary>Do you arrange the UAE visa?</summary><div class="ans"><p>Yes. Send us passport and photo scans and our team files your UAE tourist visa. Your passport needs to be valid for at least 6 months from your travel date.</p></div></details>
+          <details><summary>How do I pay?</summary><div class="ans"><p>Pay 25% to confirm your booking. The balance is due 30 days before you travel. If you book within 30 days of travel, the full amount is due at booking.</p></div></details>
+          <details><summary>Is the food veg-friendly?</summary><div class="ans"><p>Yes. Dubai has plenty of Indian restaurants, and the desert safari and dhow cruise dinners have vegetarian options. Ask for Jain meals when you book.</p></div></details>
+          <details><summary>Is Dubai good for kids and parents?</summary><div class="ans"><p>Very. Distances are short and the city is easy to get around. For families we suggest the Dubai Family Fun package, with water park, aquarium and theme park days built in.</p></div></details>
+          <details><summary>What if I need to cancel?</summary><div class="ans"><p>Refunds depend on how close to travel you cancel. Read the <a class="js-cancel" href="https://glabol.com/cancellation-policy" target="_blank" rel="noopener">cancellation policy</a>, and your trip planner will walk you through it before you pay.</p></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing" aria-labelledby="closeTitle">
+    <div class="wrap closing-in">
+      <div>
+        <h2 id="closeTitle">Tell us your dates. We'll plan Dubai around them.</h2>
+        <p>Free day-by-day plan and full price, with no obligation to book.</p>
+      </div>
+      <div class="closing-actions">
+        <button class="btn btn-green" type="button" data-open-lead="closing">Get free quote</button>
+        <a class="btn btn-ghost js-call" href="tel:+918962245021" data-track="call_click">Call us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <img src="assets/glabol-logo-white.png" alt="Glabol" width="118" height="26" loading="lazy">
+        <p>Glabol India plans group departures and private trips across India and abroad, since <span class="js-since">2019</span>.</p>
+      </div>
+      <div>
+        <h2 class="foot-h">Talk to us</h2>
+        <ul>
+          <li><a class="js-call js-phone-text" href="tel:+918962245021" data-track="call_click">+91 89622 45021</a></li>
+          <li><a class="js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a></li>
+          <li><a id="footMail" href="mailto:info@glabol.com">info@glabol.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h">Policies</h2>
+        <ul>
+          <li><a id="footPrivacy" href="https://glabol.com/privacy-policy">Privacy policy</a></li>
+          <li><a id="footTerms" href="https://glabol.com/terms-and-conditions">Terms and conditions</a></li>
+          <li><a class="js-cancel" href="https://glabol.com/cancellation-policy">Cancellation policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="year">2026</span> Glabol India</span>
+      <span>Photos: Unsplash. Video: Pexels.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile action bar -->
+<div class="mbar" id="mbar" aria-hidden="true">
+  <a class="btn btn-line js-call" href="tel:+918962245021" data-track="call_click" aria-label="Call Glabol" tabindex="-1">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="#1F2937"/></svg>
+  </a>
+  <a class="btn btn-line js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click" aria-label="WhatsApp Glabol" tabindex="-1">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1FA855" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/><path fill="#fff" d="M16.5 14.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
+  </a>
+  <button class="btn btn-green" type="button" data-open-lead="mobile_bar" tabindex="-1">Get free quote</button>
+</div>
+
+<!-- Lead popup (Customize / Request callback) -->
+<dialog class="dlg lead-dlg" id="leadDlg" aria-labelledby="leadDlgTitle">
+  <div class="qcard">
+    <button class="dlg-x" type="button" data-close aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="js-form-slot" data-form="popup"></div>
+  </div>
+</dialog>
+
+<!-- Day-by-day popup -->
+<dialog class="dlg itin" id="itin" aria-labelledby="itinTitle">
+  <div class="itin-top">
+    <img id="itinImg" alt="">
+    <div class="itin-titles">
+      <h2 class="itin-title" id="itinTitle"></h2>
+      <p class="itin-route" id="itinRoute"></p>
+    </div>
+    <button class="dlg-x" type="button" data-close aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="itin-body">
+    <ol class="days" id="itinDays"></ol>
+    <p class="itin-small" id="itinSmall"></p>
+  </div>
+  <div class="itin-foot">
+    <div class="pc-price"><b id="itinPrice"></b><small id="itinPer"></small></div>
+    <button class="btn btn-green" type="button" id="itinQuote">Customize</button>
+  </div>
+</dialog>
+
+<!-- Form template, cloned into the hero card and the popup -->
+<template id="formTpl">
+  <span class="qflag"><svg width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><path d="M1 12V1h8.5L7.5 4.2 9.5 7.5H2" fill="#073B22"/></svg>FREE QUOTE</span>
+  <form class="qform" novalidate>
+    <div class="qbody">
+      <h2 class="qtitle" data-title>Plan your Dubai trip</h2>
+      <p class="qlede">Our trip planner will call you with a day-by-day plan and the full price.</p>
+      <div class="qpkg" data-pkg hidden>
+        <span>Package: <b data-pkg-name></b></span>
+        <button type="button" data-pkg-x aria-label="Remove this package from the quote"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      </div>
+      <div class="fields">
+        <div class="fld fld-wide" data-fld="name">
+          <label data-for="name">Your name</label>
+          <input class="ctl" data-id="name" name="name" type="text" autocomplete="name" autocapitalize="words" maxlength="80" placeholder="Full name">
+          <span class="fld-err" data-err hidden></span>
+        </div>
+        <div class="fld fld-wide" data-fld="phone">
+          <label data-for="phone">Mobile number</label>
+          <div class="tel"><span aria-hidden="true">+91</span><input class="ctl" data-id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="14" placeholder="98765 43210"></div>
+          <span class="fld-err" data-err hidden></span>
+        </div>
+        <div class="fld" data-fld="month">
+          <label data-for="month">Travel month</label>
+          <select class="ctl" data-id="month" name="month" required><option value="" disabled selected>Select</option></select>
+          <span class="fld-err" data-err hidden></span>
+        </div>
+        <div class="fld" data-fld="pax">
+          <label data-for="pax">Travellers</label>
+          <select class="ctl" data-id="pax" name="pax" required>
+            <option value="" disabled selected>Select</option>
+            <option>Just me</option><option>2 people</option><option>3–4 people</option><option>5–8 people</option><option>9 or more</option>
+          </select>
+          <span class="fld-err" data-err hidden></span>
+        </div>
+      </div>
+      <button class="btn btn-green btn-block qsubmit" type="submit" data-submit>Get free quote</button>
+      <p class="consent">By sending this, you agree that Glabol can call or WhatsApp you about this trip.</p>
+      <p class="form-err" data-form-err role="alert" hidden></p>
+    </div>
+  </form>
+  <div class="done" data-done hidden>
+    <div class="qbody">
+      <div class="done-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M5.5 11.5l3.6 3.5 7.4-7.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h2 class="done-title" data-done-title tabindex="-1">Thanks. We've got your dates.</h2>
+      <p class="done-text" data-done-text></p>
+      <div class="extra">
+        <p class="extra-intro">Want a sharper quote? Two quick taps.</p>
+        <fieldset><legend>Hotel you'd like</legend>
+          <div class="chips" data-extra="hotel"><button type="button" class="chip" aria-pressed="false">3-star</button><button type="button" class="chip" aria-pressed="false">4-star</button><button type="button" class="chip" aria-pressed="false">5-star</button></div>
+        </fieldset>
+        <fieldset><legend>Flying from</legend>
+          <div class="chips" data-extra="city"><button type="button" class="chip" aria-pressed="false">Delhi</button><button type="button" class="chip" aria-pressed="false">Mumbai</button><button type="button" class="chip" aria-pressed="false">Bengaluru</button><button type="button" class="chip" aria-pressed="false">Hyderabad</button><button type="button" class="chip" aria-pressed="false">Chennai</button><button type="button" class="chip" aria-pressed="false">Kolkata</button><button type="button" class="chip" aria-pressed="false">Another city</button></div>
+        </fieldset>
+        <p class="extra-saved" data-saved aria-live="polite"></p>
+      </div>
+      <a class="btn btn-line btn-block js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1FA855" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/><path fill="#fff" d="M16.5 14.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
+        Chat with us on WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="qstrip"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#4F3BD8"/><path d="M4.6 8.3l2.2 2.1 4.6-4.7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Visa, hotel and sightseeing in one booking</div>
+</template>
+
+<div class="preview" id="previewNote" hidden><b>Preview mode.</b> Leads aren't sent anywhere until LEAD_ENDPOINT is set.</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = window.GLABOL_DUBAI;
+  var PACKAGES = CFG.PACKAGES;
+  var mq = function(q){ return window.matchMedia && matchMedia(q).matches; };
+  var reduceMotion = mq("(prefers-reduced-motion: reduce)");
+
+  function $(id){ return document.getElementById(id); }
+  function $$(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function inr(n){ return "₹" + Number(n).toLocaleString("en-IN"); }
+  function pic(id, w, h){ return "https://images.unsplash.com/" + id + "?auto=format&fit=crop&w=" + w + (h ? "&h=" + h : "") + "&q=70"; }
+  function byId(id){ for (var i = 0; i < PACKAGES.length; i++) if (PACKAGES[i].id === id) return PACKAGES[i]; return null; }
+
+  /* ---------- Params & tracking ---------- */
+  var params = {};
+  try { new URLSearchParams(location.search).forEach(function(v, k){ params[k] = v; }); } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  function track(event, data){ var o = { event: event }; if (data) for (var k in data) o[k] = data[k]; window.dataLayer.push(o); }
+
+  /* ---------- Contact details from settings ---------- */
+  var tel = "tel:+" + CFG.PHONE;
+  var wa = "https://wa.me/" + CFG.WHATSAPP + (CFG.WHATSAPP_TEXT ? "?text=" + encodeURIComponent(CFG.WHATSAPP_TEXT) : "");
+  function applyContacts(root){
+    $$(".js-call", root).forEach(function(a){ a.href = tel; });
+    $$(".js-wa", root).forEach(function(a){ a.href = wa; });
+    $$(".js-phone-text", root).forEach(function(a){ a.textContent = CFG.PHONE_DISPLAY; });
+  }
+  $("topCall").href = tel; $("topWa").href = wa; $("topCallLbl").textContent = CFG.PHONE_DISPLAY;
+  applyContacts(document);
+  $$(".js-rating").forEach(function(e){ e.textContent = CFG.RATING; });
+  $$(".js-reviews").forEach(function(e){ e.textContent = CFG.REVIEWS; });
+  $$(".js-since").forEach(function(e){ e.textContent = CFG.SINCE; });
+  $$(".js-cancel").forEach(function(a){ a.href = CFG.CANCELLATION_URL; });
+  $("footMail").href = "mailto:" + CFG.EMAIL; $("footMail").textContent = CFG.EMAIL;
+  $("footPrivacy").href = CFG.PRIVACY_URL; $("footTerms").href = CFG.TERMS_URL;
+  $("year").textContent = new Date().getFullYear();
+  if (!CFG.LEAD_ENDPOINT) $("previewNote").hidden = false;
+
+  /* ---------- Hero video ---------- */
+  (function(){
+    var V = CFG.HERO_VIDEO || {}, video = $("heroVideo"), poster = $("heroPoster");
+    var wide = mq("(min-width: 700px)");
+    poster.src = wide ? V.posterDesktop : V.posterMobile;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduceMotion || saveData) return;
+    var src = wide ? ((window.innerWidth * (window.devicePixelRatio || 1) > 1700 && V.desktopHD) ? V.desktopHD : V.desktop) : V.mobile;
+    if (!src) return;
+    video.src = src;
+    video.preload = "auto";
+    video.addEventListener("canplay", function(){
+      video.hidden = false;
+      var p = video.play();
+      if (p && p.catch) p.catch(function(){ video.hidden = true; });
+    }, { once: true });
+    video.load();
+  })();
+
+  /* ---------- Variant (?trip=) ---------- */
+  var variantKey = (params.trip || "").toLowerCase();
+  var variant = CFG.VARIANTS[variantKey] || null;
+  if (variant) {
+    $("h1").textContent = variant.h1;
+    document.title = variant.h1 + " | Glabol";
+  }
+
+  /* ---------- Filters ---------- */
+  var FILTERS = [
+    { key: "type",   label: "Travellers type", opts: [["honeymoon","Honeymoon"],["couple","Couple"],["family","Family"],["friends","Friends"]] },
+    { key: "budget", label: "Budget",          opts: [["lt50","Below ₹50k"],["50to75","₹50k – ₹75k"],["gt75","Above ₹75k"]] },
+    { key: "nights", label: "Duration",        opts: [["3-4","3–4 nights"],["5-6","5–6 nights"]] },
+    { key: "hotel",  label: "Hotel rating",    opts: [["5","5 star"],["4","4 star"],["3","3 star"]] }
+  ];
+  var sel = { type: [], budget: [], nights: [], hotel: [] };
+  if (variant && variant.filter) sel[variant.filter[0]].push(variant.filter[1]);
+
+  function matchOne(p, key, v){
+    if (key === "type") return p.tags.indexOf(v) > -1;
+    if (key === "budget") return v === "lt50" ? p.price < 50000 : v === "50to75" ? (p.price >= 50000 && p.price <= 75000) : p.price > 75000;
+    if (key === "nights") return v === "3-4" ? p.nights <= 4 : (p.nights >= 5 && p.nights <= 6);
+    if (key === "hotel") return String(p.hotel) === v;
+    return true;
+  }
+  function matches(p){
+    return FILTERS.every(function(f){
+      var picked = sel[f.key];
+      return !picked.length || picked.some(function(v){ return matchOne(p, f.key, v); });
+    });
+  }
+  var anyFilter = function(){ return FILTERS.some(function(f){ return sel[f.key].length; }); };
+
+  $("filters").innerHTML = FILTERS.map(function(f){
+    return '<div class="fgroup"><h3>' + esc(f.label) + '</h3>' + f.opts.map(function(o){
+      return '<label class="fcheck"><input type="checkbox" data-f="' + f.key + '" value="' + o[0] + '">' + esc(o[1]) + '</label>';
+    }).join("") + '</div>';
+  }).join("") + '<button type="button" class="link fclear" data-clear hidden>Clear all filters</button>';
+  $("fbar").innerHTML = FILTERS.map(function(f){
+    return f.opts.map(function(o){
+      return '<button type="button" class="chip" aria-pressed="false" data-f="' + f.key + '" data-v="' + o[0] + '">' + esc(o[1]) + '</button>';
+    }).join("");
+  }).join("");
+
+  function toggle(key, v, on){
+    var a = sel[key], i = a.indexOf(v);
+    if (on && i < 0) a.push(v);
+    if (!on && i > -1) a.splice(i, 1);
+    syncFilters(); render();
+    track("filter_change", { filter: key, value: v, on: !!on });
+  }
+  function syncFilters(){
+    $$('#filters input[data-f]').forEach(function(c){ c.checked = sel[c.getAttribute("data-f")].indexOf(c.value) > -1; });
+    $$('#fbar .chip').forEach(function(c){ c.setAttribute("aria-pressed", sel[c.getAttribute("data-f")].indexOf(c.getAttribute("data-v")) > -1 ? "true" : "false"); });
+    $$("[data-clear]").forEach(function(b){ b.hidden = !anyFilter(); });
+  }
+  function clearFilters(){ FILTERS.forEach(function(f){ sel[f.key] = []; }); syncFilters(); render(); }
+  $("filters").addEventListener("change", function(e){ var c = e.target; if (c.matches("input[data-f]")) toggle(c.getAttribute("data-f"), c.value, c.checked); });
+  $("fbar").addEventListener("click", function(e){ var c = e.target.closest(".chip"); if (c) toggle(c.getAttribute("data-f"), c.getAttribute("data-v"), c.getAttribute("aria-pressed") !== "true"); });
+  document.addEventListener("click", function(e){ if (e.target.closest("[data-clear]")) clearFilters(); });
+
+  /* ---------- Package cards ---------- */
+  var CHECK = '<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#09B367" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function perNight(p){ return p.nights + " nights / person"; }
+  function emiLine(p){ return CFG.EMI_MONTHS > 0 ? '<span class="emi">' + inr(Math.ceil(p.price / CFG.EMI_MONTHS)) + '/m with no cost EMI</span>' : ""; }
+  function card(p){
+    var more = p.activities.length - 2;
+    return '<article class="pc" aria-labelledby="pcn-' + p.id + '">' +
+      '<div class="pc-main">' +
+        '<figure class="pc-img"><img src="' + pic(p.img, 720, 480) + '" srcset="' + pic(p.img, 480, 320) + ' 480w, ' + pic(p.img, 720, 480) + ' 720w, ' + pic(p.img, 1000, 660) + ' 1000w" sizes="(min-width:1000px) 460px, (min-width:720px) 52vw, 100vw" alt="' + esc(p.alt) + '" loading="lazy" width="720" height="480">' +
+          (p.flag ? '<span class="pc-flag"><svg width="10" height="11" viewBox="0 0 11 12" aria-hidden="true"><path d="M1 12V1h8.5L7.5 4.2 9.5 7.5H2" fill="#073B22"/></svg>' + esc(p.flag) + '</span>' : '') +
+          '<span class="pc-len">' + p.nights + 'N / ' + (p.nights + 1) + 'D</span></figure>' +
+        '<div class="pc-body">' +
+          '<h3 class="pc-name" id="pcn-' + p.id + '">' + esc(p.name) + '</h3>' +
+          '<p class="pc-nights"><b>' + p.nights + ' nights:</b> Dubai (' + p.nights + 'N)</p>' +
+          '<ul class="pc-inc">' +
+            '<li>' + CHECK + '<span>' + p.hotel + '<span class="st" aria-hidden="true">★</span><span class="vh"> star</span> Hotel</span></li>' +
+            '<li>' + CHECK + '<span>' + p.activities.length + ' activities</span></li>' +
+            '<li>' + CHECK + '<span>' + esc(p.transfers) + ' transfers</span></li>' +
+            '<li>' + CHECK + '<span>UAE visa</span></li>' +
+          '</ul>' +
+          '<div class="pc-price-row">' +
+            '<div class="pc-price"><b>' + inr(p.price) + '</b>' + emiLine(p) + '<small>' + perNight(p) + '</small></div>' +
+            '<button type="button" class="btn btn-green" data-customize="' + p.id + '">Customize</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="pc-foot"><ul>' + p.activities.slice(0, 3).map(function(a){ return '<li>' + esc(a) + '</li>'; }).join("") + '</ul>' +
+        '<button type="button" class="link" data-itin="' + p.id + '">' + (more > 0 ? '+' + more + ' more, ' : '') + 'day-by-day plan</button></div>' +
+    '</article>';
+  }
+  var CUSTOM = '<div class="custom"><span class="custom-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="7" r="2.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="14" cy="17" r="2.5" fill="none" stroke="#fff" stroke-width="2"/></svg></span>' +
+    '<div class="custom-txt"><b>Want something different?</b><span>Tell us your dates, budget and hotel. We\'ll build a Dubai plan around them.</span></div>' +
+    '<button type="button" class="btn btn-green" data-open-lead="custom_banner">Plan my custom trip</button></div>';
+
+  function render(){
+    var list = PACKAGES.filter(matches);
+    var html = list.map(card);
+    if (html.length >= 2) html.splice(2, 0, CUSTOM); else html.push(CUSTOM);
+    if (!list.length) html = ['<div class="empty"><b>No package matches all these filters.</b><p>Clear a filter, or tell us what you want and we\'ll build it.</p><button type="button" class="btn btn-line" data-clear>Clear filters</button></div>', CUSTOM];
+    $("cards").innerHTML = html.join("");
+    $("pkgCount").textContent = list.length === PACKAGES.length ? PACKAGES.length + " packages" : list.length + " of " + PACKAGES.length + " packages";
+    var pool = list.length ? list : PACKAGES;
+    $("fromPrice").textContent = inr(Math.min.apply(null, pool.map(function(p){ return p.price; })));
+  }
+  syncFilters();
+  render();
+
+  /* ---------- Forms (hero card + popup) ---------- */
+  var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var leadId = makeId(), lead = null, extra = {}, chosen = null, started = false, sending = false;
+  var forms = [];
+
+  function makeId(){
+    var r = "";
+    try { var a = new Uint32Array(2); crypto.getRandomValues(a); r = a[0].toString(36) + a[1].toString(36); }
+    catch (e) { r = Math.random().toString(36).slice(2); }
+    return "dxb_" + Date.now().toString(36) + "_" + r;
+  }
+  function normPhone(v){
+    var d = String(v || "").replace(/\D/g, "");
+    if (d.length === 12 && d.indexOf("91") === 0) d = d.slice(2);
+    if (d.length === 11 && d.charAt(0) === "0") d = d.slice(1);
+    return d;
+  }
+  var KEYS = ["name", "phone", "month", "pax"];
+  function check(key, v){
+    if (key === "name") return v.trim().length >= 2 ? "" : "Enter your name.";
+    if (key === "phone") return /^[6-9]\d{9}$/.test(normPhone(v)) ? "" : "Enter a 10-digit mobile number.";
+    if (key === "month") return v ? "" : "Pick a month.";
+    if (key === "pax") return v ? "" : "Pick travellers.";
+    return "";
+  }
+
+  $$(".js-form-slot").forEach(function(slot){
+    var where = slot.getAttribute("data-form");
+    slot.appendChild(document.importNode($("formTpl").content, true));
+    applyContacts(slot);
+    var F = { where: where, root: slot, form: slot.querySelector(".qform") };
+    // unique ids for label/input pairs
+    $$("[data-id]", slot).forEach(function(inp){
+      var key = inp.getAttribute("data-id"), id = where + "-" + key;
+      inp.id = id;
+      var lab = slot.querySelector('[data-for="' + key + '"]'); if (lab) lab.setAttribute("for", id);
+      var err = slot.querySelector('[data-fld="' + key + '"] [data-err]'); err.id = id + "-err"; inp.setAttribute("aria-describedby", err.id);
+    });
+    if (where === "popup") slot.querySelector("[data-title]").id = "leadDlgTitle";
+    var monthSel = slot.querySelector('[data-id="month"]'), now = new Date();
+    for (var i = 0; i < 6; i++) { var d = new Date(now.getFullYear(), now.getMonth() + i, 1); monthSel.add(new Option(MONTHS[d.getMonth()] + " " + d.getFullYear())); }
+    monthSel.add(new Option("Later")); monthSel.add(new Option("Not decided"));
+    F.input = function(k){ return slot.querySelector('[data-id="' + k + '"]'); };
+    F.setErr = function(k, msg){
+      var f = slot.querySelector('[data-fld="' + k + '"]'), e = f.querySelector("[data-err]"), inp = F.input(k);
+      f.classList.toggle("bad", !!msg); e.hidden = !msg; e.textContent = msg || "";
+      if (msg) inp.setAttribute("aria-invalid", "true"); else inp.removeAttribute("aria-invalid");
+    };
+    F.form.addEventListener("focusin", function(){ if (!started) { started = true; track("lead_form_start", { form_name: CFG.FORM_NAME, form_location: where }); } });
+    F.form.addEventListener("input", function(e){ var k = e.target.getAttribute("data-id"); if (k && slot.querySelector('[data-fld="' + k + '"]').classList.contains("bad")) F.setErr(k, check(k, e.target.value)); slot.querySelector("[data-form-err]").hidden = true; });
+    F.form.addEventListener("change", function(e){ var k = e.target.getAttribute("data-id"); if (k && slot.querySelector('[data-fld="' + k + '"]').classList.contains("bad")) F.setErr(k, check(k, e.target.value)); });
+    F.form.addEventListener("submit", function(e){ e.preventDefault(); submit(F); });
+    slot.querySelector("[data-pkg-x]").addEventListener("click", function(){ setPackage(null); F.input("name").focus(); });
+    slot.querySelector("[data-done]").addEventListener("click", onExtra);
+    forms.push(F);
+  });
+
+  function setPackage(p){
+    chosen = p;
+    forms.forEach(function(F){
+      var box = F.root.querySelector("[data-pkg]");
+      box.hidden = !p;
+      if (p) F.root.querySelector("[data-pkg-name]").textContent = p.name + ", " + p.nights + "N/" + (p.nights + 1) + "D";
+    });
+  }
+
+  function tracking(){
+    return {
+      gclid: params.gclid || "", gbraid: params.gbraid || "", wbraid: params.wbraid || "",
+      utm_source: params.utm_source || "", utm_medium: params.utm_medium || "", utm_campaign: params.utm_campaign || "",
+      utm_term: params.utm_term || "", utm_content: params.utm_content || "", trip_variant: variantKey,
+      page_url: location.href, referrer: document.referrer || ""
+    };
+  }
+  function payload(stage){
+    return {
+      form: CFG.FORM_NAME, stage: stage, lead_id: leadId, submitted_at: new Date().toISOString(),
+      form_location: lead.where, name: lead.name, phone: lead.phone,
+      travel_month: lead.month, travellers: lead.pax,
+      package_id: lead.package_id, package_name: lead.package_name,
+      hotel_category: extra.hotel || "", flying_from: extra.city || "",
+      tracking: tracking()
+    };
+  }
+  function post(body){
+    if (!CFG.LEAD_ENDPOINT) {
+      if (window.console) console.info("[Glabol Dubai] Preview mode, nothing sent:", body);
+      return new Promise(function(res){ setTimeout(res, 400); });
+    }
+    var json = JSON.stringify(body);
+    return fetch(CFG.LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: json, keepalive: true })
+      .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); })
+      .catch(function(){
+        // Some webhook tools block cross-site JSON. Retry once as plain text.
+        return fetch(CFG.LEAD_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: json, keepalive: true });
+      });
+  }
+
+  function submit(F){
+    if (sending) return;
+    var firstBad = null;
+    KEYS.forEach(function(k){ var m = check(k, F.input(k).value); F.setErr(k, m); if (m && !firstBad) firstBad = k; });
+    if (firstBad) { F.input(firstBad).focus(); return; }
+    var phone10 = normPhone(F.input("phone").value);
+    lead = {
+      where: F.where,
+      name: F.input("name").value.trim().replace(/\s+/g, " "),
+      phone: "+91" + phone10, month: F.input("month").value, pax: F.input("pax").value,
+      package_id: chosen ? chosen.id : "", package_name: chosen ? chosen.name : ""
+    };
+    sending = true;
+    var btn = F.root.querySelector("[data-submit]"), err = F.root.querySelector("[data-form-err]");
+    btn.disabled = true; btn.textContent = "Sending…"; err.hidden = true;
+    post(payload("lead")).then(function(){
+      track("generate_lead", {
+        form_name: CFG.FORM_NAME, form_location: F.where,
+        lead: { id: leadId, package_id: lead.package_id, travel_month: lead.month, travellers: lead.pax, value: CFG.LEAD_VALUE, currency: "INR" },
+        user_data: { phone_number: lead.phone }
+      });
+      showDone(phone10, F);
+    }).catch(function(){
+      sending = false; btn.disabled = false; btn.textContent = "Get free quote";
+      err.textContent = "We couldn't send your details. Check your connection and try again, or call " + CFG.PHONE_DISPLAY + ".";
+      err.hidden = false;
+      track("lead_post_error", { form_name: CFG.FORM_NAME });
+    });
+  }
+
+  function showDone(phone10, from){
+    var first = lead.name.split(" ")[0];
+    var masked = "+91 " + phone10.slice(0, 2) + "XXX XX" + phone10.slice(7);
+    forms.forEach(function(F){
+      F.root.querySelector("[data-done-title]").textContent = "Thanks, " + first + ". We've got your dates.";
+      F.root.querySelector("[data-done-text]").textContent = "Our trip planner will call you on " + masked + " with your Dubai plan and price.";
+      F.form.hidden = true;
+      F.root.querySelector("[data-done]").hidden = false;
+      var flag = F.root.querySelector(".qflag"); if (flag) flag.hidden = true;
+    });
+    var t = from.root.querySelector("[data-done-title]");
+    try { t.focus({ preventScroll: true }); } catch (e) { t.focus(); }
+  }
+
+  var extraTimer = null;
+  function onExtra(e){
+    var chip = e.target.closest(".chip"); if (!chip) return;
+    var group = chip.parentNode, key = group.getAttribute("data-extra"), val = chip.textContent.trim();
+    extra[key] = val;
+    forms.forEach(function(F){
+      $$('[data-extra="' + key + '"] .chip', F.root).forEach(function(c){ c.setAttribute("aria-pressed", c.textContent.trim() === val ? "true" : "false"); });
+      F.root.querySelector("[data-saved]").textContent = "";
+    });
+    clearTimeout(extraTimer);
+    extraTimer = setTimeout(function(){
+      post(payload("details")).then(function(){
+        forms.forEach(function(F){ F.root.querySelector("[data-saved]").textContent = "Saved. Your trip planner will see this."; });
+        track("lead_details", { lead_id: leadId, hotel_category: extra.hotel || "", flying_from: extra.city || "" });
+      }).catch(function(){});
+    }, 600);
+  }
+
+  /* ---------- Dialogs ---------- */
+  var leadDlg = $("leadDlg"), itin = $("itin"), lastOpener = null;
+  function openDlg(d, opener){
+    lastOpener = opener || document.activeElement;
+    if (typeof d.showModal === "function") { if (!d.open) d.showModal(); } else d.setAttribute("open", "");
+  }
+  function closeDlg(d){ if (typeof d.close === "function") d.close(); else d.removeAttribute("open"); }
+  [leadDlg, itin].forEach(function(d){
+    d.addEventListener("click", function(e){ if (e.target === d || e.target.closest("[data-close]")) closeDlg(d); });
+    d.addEventListener("close", function(){ if (lastOpener && lastOpener.focus) { try { lastOpener.focus({ preventScroll: true }); } catch (e) {} } });
+  });
+
+  function openLead(where, p, opener){
+    if (p !== undefined) setPackage(p);
+    var F = forms.filter(function(x){ return x.where === "popup"; })[0];
+    F.root.querySelector("[data-title]").textContent = p ? "Customize " + p.name : "Plan your Dubai trip";
+    openDlg(leadDlg, opener);
+    if (!F.form.hidden) setTimeout(function(){ F.input("name").focus(); }, 30);
+    track("cta_click", { cta_location: where, package_id: p ? p.id : "" });
+  }
+
+  var itinPkg = null;
+  function openItin(p, opener){
+    itinPkg = p;
+    $("itinImg").src = pic(p.img, 900, 320);
+    $("itinTitle").textContent = p.name + ", " + p.nights + "N/" + (p.nights + 1) + "D";
+    $("itinRoute").textContent = "Dubai (" + p.nights + "N), " + p.hotel + "-star hotel, " + p.transfers.toLowerCase() + " transfers";
+    $("itinDays").innerHTML = p.plan.map(function(d, i){ return '<li><span class="dn">Day ' + (i + 1) + '</span><div><h4>' + esc(d[0]) + '</h4><p>' + esc(d[1]) + '</p></div></li>'; }).join("");
+    $("itinSmall").textContent = "Includes hotel with breakfast, airport transfers, UAE visa and entry tickets for everything above. International flights extra.";
+    $("itinPrice").textContent = inr(p.price);
+    $("itinPer").textContent = perNight(p);
+    openDlg(itin, opener);
+    itin.querySelector(".itin-body").scrollTop = 0;
+    track("itinerary_open", { package_id: p.id });
+  }
+  $("itinQuote").addEventListener("click", function(){
+    var p = itinPkg; closeDlg(itin);
+    setTimeout(function(){ openLead("itinerary", p, null); }, 10);
+  });
+
+  document.addEventListener("click", function(e){
+    var c = e.target.closest("[data-customize]");
+    if (c) { openLead("package_card", byId(c.getAttribute("data-customize")), c); return; }
+    var it = e.target.closest("[data-itin]");
+    if (it) { openItin(byId(it.getAttribute("data-itin")), it); return; }
+    var o = e.target.closest("[data-open-lead]");
+    if (o) { openLead(o.getAttribute("data-open-lead"), null, o); return; }
+    var t = e.target.closest("[data-track]");
+    if (t) track(t.getAttribute("data-track"), { link_location: t.closest(".top") ? "header" : t.closest(".mbar") ? "mobile_bar" : "page" });
+  });
+
+  /* ---------- Header + mobile bar ---------- */
+  var topBar = $("top"), mbar = $("mbar");
+  function onScroll(){ topBar.classList.toggle("is-solid", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function(entries){
+      var en = entries[0], on = !en.isIntersecting && en.boundingClientRect.top < 0;
+      mbar.classList.toggle("is-on", on);
+      mbar.setAttribute("aria-hidden", on ? "false" : "true");
+      $$("a,button", mbar).forEach(function(a){ a.tabIndex = on ? 0 : -1; });
+    }).observe($("quote"));
+  }
+})();
+</script>
+</body>
+</html>
