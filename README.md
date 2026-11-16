@@ -64,9 +64,13 @@ There is no thank-you page redirect, so don't also fire a page-view conversion.
 
 ## Hosting
 
-GitHub Pages from the `main` branch (root), like the Kashmir and Himachal pages. To use `dubai.glabol.com`:
-1. In Cloudflare DNS for glabol.com, add `CNAME dubai → burhanscalemyads-byte.github.io`.
-2. In the repo's Settings → Pages → Custom domain, enter `dubai.glabol.com` (GitHub adds the `CNAME` file).
+GitHub Pages from the `main` branch (root), like the Kashmir and Himachal pages, at **https://dubai.glabol.com/**. The `CNAME` file in this repo holds the domain.
+
+Cloudflare DNS record for glabol.com:
+
+| Type | Name | Target | Proxy status |
+|---|---|---|---|
+| CNAME | dubai | burhanscalemyads-byte.github.io | Proxied (orange cloud) |
 
 ## Test locally
 
