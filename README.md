@@ -1,33 +1,39 @@
 # Glabol Dubai: landing page
 
-A static landing page for Google Ads lead capture on Dubai tour packages. There's no build step: open `index.html` or upload the folder anywhere.
+A static landing page for Google Ads lead capture on Dubai tour packages. There's no build step: open `index.html` or upload the folder anywhere. Leads and tracking work the same way as the Kashmir and Himachal pages.
 
 ```
-index.html     the whole page (HTML, CSS and JS in one file)
-assets/        Glabol logo
-_headers       Cloudflare Pages headers
-_redirects     Cloudflare Pages redirects (keeps README private)
-.htaccess      the same rules for Hostinger (Apache / LiteSpeed)
+index.html                    the whole page (HTML, CSS and JS in one file)
+assets/                       Glabol logo
+tools/google-sheet-leads.gs   Apps Script for a Dubai lead sheet (see Leads)
+_headers, _redirects          Cloudflare Pages rules (keep README and tools private)
+.htaccess                     the same rules for Hostinger (Apache / LiteSpeed)
+CNAME                         dubai.glabol.com for GitHub Pages
 ```
 
 Photos load from Unsplash and the hero video from Pexels (both free licences). For speed and reliability, host your own copies of the two videos and change the `HERO_VIDEO` URLs.
 
-## Before going live
+## Before running ads
 
 All settings are in `window.GLABOL_DUBAI` at the top of `index.html`.
 
-1. **PACKAGES**: the six Dubai trips, prices, activities and day-by-day plans are **placeholders**. Replace them with Glabol's real packages. The cards, filters, popup and "Starting at ₹..." price all update from this list.
+1. **PACKAGES**: the six Dubai trips, prices, activities and day-by-day plans are **placeholders**. Replace them with Glabol's real packages. The cards, filters, popup, "Starting at ₹..." price and the budget question all update from this list.
    Each package has: `nights`, `hotel` (3/4/5), `transfers` (Shared/Private), `price`, `tags` (honeymoon/couple/family/friends), `flag` (ribbon text, or `""`), `img` (Unsplash photo id), `activities`, and `plan` (one `[title, text]` per day).
-2. **LEAD_ENDPOINT**: the CRM web-form or webhook URL. Each lead is POSTed as JSON. While it is empty the page runs in preview mode (yellow note, nothing sent).
-3. **GTM_ID**: Glabol's Google Tag Manager container.
-4. **RATING / REVIEWS / SINCE**: check they match Glabol's Google listing today.
-5. **PHONE / WHATSAPP**: digits with country code. Confirm the WhatsApp number.
-6. **EMI_MONTHS**: leave at `0` unless no-cost EMI is really offered. When set (e.g. `6`), each card shows "₹X/m with no cost EMI".
-7. Inclusions, exclusions, FAQ and "Good to know" copy is written in the HTML. Check it with Glabol ops (visa included? hotel class in the base price?).
+2. **SHEET_ENDPOINT**: leads currently go to the **Kashmir sheet**, the way Himachal ran before it had its own (see Leads).
+3. **RATING / REVIEWS / SINCE**: check they match Glabol's Google listing today.
+4. **PHONE / WHATSAPP**: digits with country code. Confirm the WhatsApp number.
+5. **EMI_MONTHS**: leave at `0` unless no-cost EMI is really offered. When set (e.g. `6`), each card shows "₹X/m with no cost EMI".
+6. Inclusions, exclusions, FAQ and "Good to know" copy is written in the HTML. Check it with Glabol ops (visa included? hotel class in the base price?).
 
-## Ad URL options
+## Ad URLs
 
-The headline and filter match the ad group:
+Google Ads final URL suffix, the same as the other destination pages:
+
+```
+utm_source=google&utm_medium=cpc&campaign_id={campaignid}&adset_id={adgroupid}&ad_id={creative}&kw={keyword}
+```
+
+Add `trip=` to the final URL to match the headline and filter to the ad group:
 
 | URL | Headline | Filter |
 |---|---|---|
@@ -39,42 +45,65 @@ The headline and filter match the ad group:
 
 ## Leads
 
-- The form in the hero (on phones, right under the video).
-- "Customize" on any package, "Request callback", "Plan my custom trip" and "Get free quote" all open the same form in a popup. Customize attaches the package to the lead.
+Every enquiry is sent to the **Google Sheet** and the **Glabol CRM** at the same time, like the other destination pages. The forms are the hero form (on phones, right under the video) and the popup that "Customize", "Request callback", "Plan my custom trip" and "Get free quote" open. Customize attaches the package to the lead.
 
-Two posts can share one `lead_id`:
-- `stage: "lead"`: name, phone (+91XXXXXXXXXX), travel_month, travellers, package_id / package_name, form_location
-- `stage: "details"` (optional, after the thank-you): hotel_category, flying_from
+**Google Sheet** (`SHEET_ENDPOINT`): one row per enquiry with the same columns as the Kashmir and Himachal sheets:
 
-Both include tracking: gclid, gbraid, wbraid, utm_source, utm_medium, utm_campaign, utm_term, utm_content, trip_variant, page_url, referrer. Upsert by `lead_id`.
+| Timestamp | Name | Phone | Travel month | Travellers | Lead quality | Budget fit | Booking timeline | Best time to call | Source | Medium | Campaign ID | Adset ID | Ad ID | Keyword | GCLID | Landing page | Form | Lead ID |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
-## dataLayer events (for GTM)
+- **Form** says where the enquiry came from and the package, e.g. `Dubai hero` or `Dubai popup - Dubai Honeymoon 4N/5D`.
+- **For now the URL is the Kashmir sheet.** Filter its "Form" or "Landing page" column for Dubai. Its email alerts still say "New Kashmir lead".
+- **To give Dubai its own sheet** (about 5 minutes): follow the steps at the top of [`tools/google-sheet-leads.gs`](tools/google-sheet-leads.gs). That copy already says "Dubai" in its alerts. Put the new web app URL in `SHEET_ENDPOINT`.
 
-| Event | When |
+**Glabol CRM** (`CRM_WEBHOOK_URL`, `CRM_API_KEY`, `DESTINATION`): JSON with an `x-api-key` header, the same as the other pages:
+
+| Field | Value |
 |---|---|
-| `generate_lead` | once, after a lead is saved. Carries `lead {id, package_id, travel_month, travellers, value, currency}` and `user_data {phone_number}` for enhanced conversions. Use it as the Google Ads conversion trigger, with transaction ID = `lead.id`. |
-| `lead_form_start` | first tap into a form |
-| `lead_details` | optional hotel / city answers saved |
-| `cta_click` | Customize / Request callback / other quote buttons |
-| `itinerary_open` | day-by-day plan opened |
-| `filter_change` | a package filter switched on or off |
-| `call_click`, `whatsapp_click`, `lead_post_error` | as named |
+| `name`, `phone` | from the form; phone as +91XXXXXXXXXX |
+| `email` | empty |
+| `destination` | `Dubai` |
+| `message` | "Interested in Dubai package: Classic Dubai 4N/5D. Travel month: Dec 2026. Travellers: 2 people." |
+| `host` | the page's domain, e.g. dubai.glabol.com |
+| `source` | "Google Ads" for Google ad clicks, "Meta Ads" for Facebook or Instagram, "Website" otherwise |
 
-There is no thank-you page redirect, so don't also fire a page-view conversion.
+The CRM accepts requests from `*.glabol.com` pages only. If it's down or slow, the visitor still gets the thank-you (the page waits at most 5 seconds) and the lead is still in the sheet.
+
+**Thank-you questions:** after an enquiry the card asks the same three questions as the other pages (budget fit, booking timeline, best time to call). Each answer updates the lead's sheet row and sets Lead quality: Hot (budget fits, booking within a month), Warm (budget fits, just exploring), Cold (needs something cheaper) or Partial.
+
+## Ad tracking (GTM-TTXFHSF9)
+
+Every ad tag lives in Glabol's GTM container, shared with the other destination pages; the page loads no pixel itself. It pushes the same events with the same data, so the existing tags work unchanged:
+
+| Event | When | Data |
+|---|---|---|
+| `lead_form_submit` | once per enquiry, after it is sent | `lead_id`; `user_data.phone_number` (+91…) |
+| `thank_you_page_view` | straight after it | `lead_id`, `transaction_id` (= lead ID) |
+| `qualified_lead` | once, when the answers make the lead Hot | `lead_id`, `budget_fit`, `booking_timeline` |
+| `lead_questions_complete` | once, when all three questions are answered | `lead_id`, `lead_quality`, `budget_fit`, `booking_timeline`, `call_time` |
+
+The page also pushes `lead_form_start`, `cta_click`, `itinerary_open`, `filter_change`, `call_click`, `whatsapp_click` and `lead_post_error`. No GTM tags use them yet.
+
+Calls and WhatsApp chats from the page aren't recorded in the sheet or CRM, unlike form enquiries.
+
+## Test
+
+Local copies never send leads and don't load GTM, so tests can't fill the sheet or the CRM, or count as conversions. Each payload is printed in the browser console instead.
+
+```
+python3 -m http.server 8791
+```
+
+Open http://localhost:8791/?utm_source=google&utm_medium=cpc&campaign_id=111&adset_id=222&ad_id=333&kw=dubai+tour+package&gclid=test123
+
+On the live site, add `?nosend=1` to test the same way. To check the full path once, send one real enquiry on https://dubai.glabol.com/ named "Test lead (delete me)", then delete it from the sheet and the CRM.
 
 ## Hosting
 
-GitHub Pages from the `main` branch (root), like the Kashmir and Himachal pages, at **https://dubai.glabol.com/**. The `CNAME` file in this repo holds the domain.
+GitHub Pages from the `main` branch (root), like the Kashmir and Himachal pages, at **https://dubai.glabol.com/**. The `CNAME` file holds the domain.
 
 Cloudflare DNS record for glabol.com:
 
 | Type | Name | Target | Proxy status |
 |---|---|---|---|
 | CNAME | dubai | burhanscalemyads-byte.github.io | Proxied (orange cloud) |
-
-## Test locally
-
-```
-python3 -m http.server 8790
-```
-Then open http://localhost:8790/?gclid=TEST. In preview mode each payload is printed in the browser console.

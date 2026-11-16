@@ -1,7 +1,7 @@
 # Hostinger (Apache / LiteSpeed) settings. Cloudflare Pages uses _headers and _redirects instead.
 
 # Helper files stay private
-RedirectMatch 302 ^/(README\.md|_headers|_redirects)$ /
+RedirectMatch 302 ^/(tools/.*|README\.md|_headers|_redirects)$ /
 
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"

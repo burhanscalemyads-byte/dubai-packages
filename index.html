@@ -20,9 +20,17 @@
 /* ==================================================================
    SETTINGS: check these before the page goes live
    ------------------------------------------------------------------
-   LEAD_ENDPOINT  URL that receives each lead as JSON (CRM web-form or
-                  webhook). Empty = preview mode: nothing is sent.
-   GTM_ID         Glabol's Google Tag Manager container (GTM-XXXXXXX).
+   SHEET_ENDPOINT Google Apps Script web app URL (see README: Leads).
+                  For now this is the KASHMIR sheet, the way Himachal ran
+                  before it had its own. Make a Dubai sheet and swap the URL.
+   CRM_WEBHOOK_URL / CRM_API_KEY / DESTINATION
+                  Glabol CRM intake, same as the other destination pages.
+                  The CRM accepts requests from *.glabol.com pages only.
+   GTM_ID         Glabol's Google Tag Manager container, shared by every
+                  destination page. The page only pushes events; all ad
+                  tags (Google Ads, GA4, Meta) live in GTM.
+   Test copies on localhost never send leads; add ?nosend=1 to test on the
+   live site without sending.
    PHONE / WHATSAPP  Digits only, with country code.
    RATING / REVIEWS  Shown in the trust strip. Keep these true.
    EMI_MONTHS     Set to 3, 6 etc. ONLY if no-cost EMI is really offered.
@@ -33,10 +41,12 @@
                   real Dubai packages before going live.
    ================================================================== */
 window.GLABOL_DUBAI = {
-  LEAD_ENDPOINT: "",
-  GTM_ID: "",
+  SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbwYnAfwqPfea57MW3LadpPw1Yg-5xLaTna93DhnYOvCp25B4wu8R7pwIYbnUkKYeakj/exec",   // Kashmir sheet (temporary)
+  CRM_WEBHOOK_URL: "https://crm.glabol.com/api/webhooks/leads/intake?secret=xq6z371n9a",
+  CRM_API_KEY: "xq6z371n9a",
+  DESTINATION: "Dubai",
+  GTM_ID: "GTM-TTXFHSF9",
   FORM_NAME: "dubai_lp_v2",
-  LEAD_VALUE: 0,
   PHONE: "918962245021",
   PHONE_DISPLAY: "+91 89622 45021",
   WHATSAPP: "918962245021",
@@ -153,11 +163,13 @@ window.GLABOL_DUBAI = {
 </script>
 
 <script>
-/* Google Tag Manager (loads only when GTM_ID is set) */
+/* Google Tag Manager. It isn't loaded on local test copies or with ?nosend=1, so test
+   enquiries never count as Google Ads or Meta conversions. dataLayer events still appear. */
 (function(){
   var id = window.GLABOL_DUBAI.GTM_ID;
   window.dataLayer = window.dataLayer || [];
-  if (!id) return;
+  var test = /^(localhost|127\.0\.0\.1|\[::1\]|)$/.test(location.hostname) || location.protocol === "file:" || /[?&]nosend=1(&|$)/.test(location.search);
+  if (!id || test) return;
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
   var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
   j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -333,7 +345,8 @@ select.ctl option{color:var(--ink)}
 .extra{margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--line)}
 .extra-intro{margin:0;font-size:14px;font-weight:800;color:var(--title)}
 .extra fieldset{border:0;margin:10px 0 0;padding:0;min-width:0}
-.extra legend{padding:0;margin-bottom:6px;font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.extra legend{padding:0;margin-bottom:7px;font-size:13.5px;font-weight:700;color:var(--ink-2);line-height:1.4}
+.extra fieldset + fieldset{margin-top:14px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{
   min-height:36px;padding:7px 12px;border-radius:999px;cursor:pointer;
@@ -525,7 +538,8 @@ select.ctl option{color:var(--ink)}
 .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .foot a{color:rgba(255,255,255,.82);text-decoration:none}
 .foot a:hover{color:#fff;text-decoration:underline}
-.foot-base{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:rgba(255,255,255,.5)}
+.foot-privacy{margin:28px 0 0;max-width:90ch;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.55)}
+.foot-base{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:rgba(255,255,255,.5)}
 @media (max-width:899px){.foot{padding-bottom:104px}}
 
 /* ---------- Mobile action bar ---------- */
@@ -580,6 +594,7 @@ select.ctl option{color:var(--ink)}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTXFHSF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="top" id="top">
   <div class="wrap top-in">
@@ -854,6 +869,7 @@ select.ctl option{color:var(--ink)}
         </ul>
       </div>
     </div>
+    <p class="foot-privacy">Privacy: details you send through this page are used to contact you about this trip, and we never sell them. We use Meta and Google ad tools to measure our ads; they may receive your phone number in scrambled (hashed) form. Ask us any time to delete your details.</p>
     <div class="foot-base">
       <span>© <span id="year">2026</span> Glabol India</span>
       <span>Photos: Unsplash. Video: Pexels.</span>
@@ -951,12 +967,15 @@ select.ctl option{color:var(--ink)}
       <h2 class="done-title" data-done-title tabindex="-1">Thanks. We've got your dates.</h2>
       <p class="done-text" data-done-text></p>
       <div class="extra">
-        <p class="extra-intro">Want a sharper quote? Two quick taps.</p>
-        <fieldset><legend>Hotel you'd like</legend>
-          <div class="chips" data-extra="hotel"><button type="button" class="chip" aria-pressed="false">3-star</button><button type="button" class="chip" aria-pressed="false">4-star</button><button type="button" class="chip" aria-pressed="false">5-star</button></div>
+        <p class="extra-intro">3 quick questions so your trip planner can plan the call.</p>
+        <fieldset><legend data-budget-q>Packages start at ₹34,999 per person, without flights. Does that fit your budget?</legend>
+          <div class="chips" data-q="budget_fit"><button type="button" class="chip" aria-pressed="false" value="Fits">Yes, that fits</button><button type="button" class="chip" aria-pressed="false" value="A bit high, but open">A bit high, but I'm open</button><button type="button" class="chip" aria-pressed="false" value="Too high">I need something cheaper</button></div>
         </fieldset>
-        <fieldset><legend>Flying from</legend>
-          <div class="chips" data-extra="city"><button type="button" class="chip" aria-pressed="false">Delhi</button><button type="button" class="chip" aria-pressed="false">Mumbai</button><button type="button" class="chip" aria-pressed="false">Bengaluru</button><button type="button" class="chip" aria-pressed="false">Hyderabad</button><button type="button" class="chip" aria-pressed="false">Chennai</button><button type="button" class="chip" aria-pressed="false">Kolkata</button><button type="button" class="chip" aria-pressed="false">Another city</button></div>
+        <fieldset><legend>When are you planning to book?</legend>
+          <div class="chips" data-q="booking_timeline"><button type="button" class="chip" aria-pressed="false" value="This week">This week</button><button type="button" class="chip" aria-pressed="false" value="In 2-4 weeks">In the next 2–4 weeks</button><button type="button" class="chip" aria-pressed="false" value="Just exploring">Just exploring for now</button></div>
+        </fieldset>
+        <fieldset><legend>When should we call you?</legend>
+          <div class="chips" data-q="call_time"><button type="button" class="chip" aria-pressed="false" value="Morning">Morning, 9am–12pm</button><button type="button" class="chip" aria-pressed="false" value="Afternoon">Afternoon, 12–5pm</button><button type="button" class="chip" aria-pressed="false" value="Evening">Evening, 5–9pm</button><button type="button" class="chip" aria-pressed="false" value="Anytime">Anytime</button></div>
         </fieldset>
         <p class="extra-saved" data-saved aria-live="polite"></p>
       </div>
@@ -969,7 +988,7 @@ select.ctl option{color:var(--ink)}
   <div class="qstrip"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#4F3BD8"/><path d="M4.6 8.3l2.2 2.1 4.6-4.7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Visa, hotel and sightseeing in one booking</div>
 </template>
 
-<div class="preview" id="previewNote" hidden><b>Preview mode.</b> Leads aren't sent anywhere until LEAD_ENDPOINT is set.</div>
+<div class="preview" id="previewNote" hidden><b>Test mode.</b> Leads from this address aren't sent to the sheet or the CRM.</div>
 
 <script>
 (function(){
@@ -1009,7 +1028,9 @@ select.ctl option{color:var(--ink)}
   $("footMail").href = "mailto:" + CFG.EMAIL; $("footMail").textContent = CFG.EMAIL;
   $("footPrivacy").href = CFG.PRIVACY_URL; $("footTerms").href = CFG.TERMS_URL;
   $("year").textContent = new Date().getFullYear();
-  if (!CFG.LEAD_ENDPOINT) $("previewNote").hidden = false;
+  // Local copies and ?nosend=1 never send leads, so tests can't fill the sheet or the CRM
+  var TEST_MODE = /^(localhost|127\.0\.0\.1|\[::1\]|)$/.test(location.hostname) || location.protocol === "file:" || params.nosend === "1";
+  if (TEST_MODE || (!CFG.SHEET_ENDPOINT && !CFG.CRM_WEBHOOK_URL)) $("previewNote").hidden = false;
 
   /* ---------- Hero video ---------- */
   (function(){
@@ -1140,14 +1161,16 @@ select.ctl option{color:var(--ink)}
 
   /* ---------- Forms (hero card + popup) ---------- */
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  var leadId = makeId(), lead = null, extra = {}, chosen = null, started = false, sending = false;
+  var leadId = makeId(), lead = null, chosen = null, started = false, sending = false;
+  var answers = {}, seq = 0, qualifiedTracked = false, completeTracked = false;
   var forms = [];
 
+  // UUID: the sheet script only accepts lead IDs in this format
   function makeId(){
-    var r = "";
-    try { var a = new Uint32Array(2); crypto.getRandomValues(a); r = a[0].toString(36) + a[1].toString(36); }
-    catch (e) { r = Math.random().toString(36).slice(2); }
-    return "dxb_" + Date.now().toString(36) + "_" + r;
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    var b = new Uint8Array(16);
+    try { crypto.getRandomValues(b); } catch (e) { for (var i = 0; i < 16; i++) b[i] = Math.floor(Math.random() * 256); }
+    return Array.prototype.map.call(b, function(x){ return ("0" + x.toString(16)).slice(-2); }).join("");
   }
   function normPhone(v){
     var d = String(v || "").replace(/\D/g, "");
@@ -1191,7 +1214,7 @@ select.ctl option{color:var(--ink)}
     F.form.addEventListener("change", function(e){ var k = e.target.getAttribute("data-id"); if (k && slot.querySelector('[data-fld="' + k + '"]').classList.contains("bad")) F.setErr(k, check(k, e.target.value)); });
     F.form.addEventListener("submit", function(e){ e.preventDefault(); submit(F); });
     slot.querySelector("[data-pkg-x]").addEventListener("click", function(){ setPackage(null); F.input("name").focus(); });
-    slot.querySelector("[data-done]").addEventListener("click", onExtra);
+    slot.querySelector("[data-done]").addEventListener("click", onAnswer);
     forms.push(F);
   });
 
@@ -1204,36 +1227,86 @@ select.ctl option{color:var(--ink)}
     });
   }
 
-  function tracking(){
-    return {
-      gclid: params.gclid || "", gbraid: params.gbraid || "", wbraid: params.wbraid || "",
-      utm_source: params.utm_source || "", utm_medium: params.utm_medium || "", utm_campaign: params.utm_campaign || "",
-      utm_term: params.utm_term || "", utm_content: params.utm_content || "", trip_variant: variantKey,
-      page_url: location.href, referrer: document.referrer || ""
-    };
-  }
-  function payload(stage){
-    return {
-      form: CFG.FORM_NAME, stage: stage, lead_id: leadId, submitted_at: new Date().toISOString(),
-      form_location: lead.where, name: lead.name, phone: lead.phone,
-      travel_month: lead.month, travellers: lead.pax,
-      package_id: lead.package_id, package_name: lead.package_name,
-      hotel_category: extra.hotel || "", flying_from: extra.city || "",
-      tracking: tracking()
-    };
-  }
-  function post(body){
-    if (!CFG.LEAD_ENDPOINT) {
-      if (window.console) console.info("[Glabol Dubai] Preview mode, nothing sent:", body);
-      return new Promise(function(res){ setTimeout(res, 400); });
+  /* ---------- Ad attribution (same fields and rules as the Kashmir and Himachal pages) ----------
+     Read when the visitor lands and kept for the visit, so a lead is credited to the ad they
+     clicked even if they browse first. A new ad click replaces it. */
+  function param(){
+    for (var i = 0; i < arguments.length; i++) {
+      var v = String(params[arguments[i]] || "").trim();
+      if (v && !/^\{.*\}$/.test(v)) return v.slice(0, 200);   // skip unfilled {keyword}-style placeholders
     }
-    var json = JSON.stringify(body);
-    return fetch(CFG.LEAD_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: json, keepalive: true })
-      .then(function(r){ if (!r.ok) throw new Error("HTTP " + r.status); })
-      .catch(function(){
-        // Some webhook tools block cross-site JSON. Retry once as plain text.
-        return fetch(CFG.LEAD_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: json, keepalive: true });
-      });
+    return "";
+  }
+  function trafficSource(c){
+    if (c.utm_source) return { source: c.utm_source, medium: c.utm_medium };
+    if (c.gclid || c.gbraid || c.wbraid) return { source: "google", medium: "cpc" };
+    if (c.fbclid) return { source: "facebook", medium: "social" };
+    var host = "";
+    try { host = new URL(document.referrer).hostname.replace(/^www\./, ""); } catch (e) {}
+    if (!host || host === location.hostname.replace(/^www\./, "")) return { source: "(direct)", medium: "(none)" };
+    var engine = host.match(/(?:^|\.)(google|bing|yahoo|duckduckgo|ecosia)\./);
+    return engine ? { source: engine[1], medium: "organic" } : { source: host, medium: "referral" };
+  }
+  var attribution = (function(){
+    var click = {
+      utm_source: param("utm_source"), utm_medium: param("utm_medium"),
+      campaign_id: param("campaign_id", "utm_id", "gad_campaignid", "campaignid"),
+      adset_id: param("adset_id", "adgroup_id", "adgroupid"),
+      ad_id: param("ad_id", "creative"),
+      keyword: param("kw", "utm_term"),
+      gclid: param("gclid"), gbraid: param("gbraid"), wbraid: param("wbraid"), fbclid: param("fbclid")
+    };
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem("dxb_attr") || "null"); } catch (e) {}
+    var isNewClick = Object.keys(click).some(function(k){ return !!click[k]; });
+    if (saved && saved.source && !isNewClick) return saved;
+    var src = trafficSource(click);
+    var result = {
+      source: src.source, medium: src.medium,
+      campaign_id: click.campaign_id, adset_id: click.adset_id, ad_id: click.ad_id, keyword: click.keyword,
+      gclid: click.gclid, gbraid: click.gbraid, wbraid: click.wbraid,
+      landing_url: location.href.split("#")[0].slice(0, 500)
+    };
+    try { sessionStorage.setItem("dxb_attr", JSON.stringify(result)); } catch (e) {}
+    return result;
+  })();
+
+  /* ---------- Sending: Google Sheet + Glabol CRM ---------- */
+  function postToSheet(data){
+    if (TEST_MODE || !CFG.SHEET_ENDPOINT) {
+      if (window.console) console.info("[Glabol Dubai] Test mode, not sent to the sheet:", data);
+      return new Promise(function(res){ setTimeout(res, 300); });
+    }
+    // URL-encoded, as the Apps Script reads it. Apps Script sends no CORS headers, so no-cors.
+    var body = new URLSearchParams();
+    Object.keys(data).forEach(function(k){ body.append(k, data[k] == null ? "" : String(data[k])); });
+    return fetch(CFG.SHEET_ENDPOINT, { method: "POST", body: body, mode: "no-cors", keepalive: true });
+  }
+  function crmSource(a){
+    var s = (a.source || "").toLowerCase(), m = (a.medium || "").toLowerCase();
+    if (a.gclid || a.gbraid || a.wbraid || (s === "google" && /cpc|ppc|paid/.test(m))) return "Google Ads";
+    if (/facebook|instagram|meta|^fb$|^ig$/.test(s)) return "Meta Ads";
+    return "Website";
+  }
+  // Never throws and never waits more than 5s, so the CRM can't hold up or lose a lead
+  function postLeadToCRM(l){
+    var body = {
+      name: l.name, phone: l.phone, email: "", destination: CFG.DESTINATION,
+      message: "Interested in " + CFG.DESTINATION + " package" + (l.package_label ? ": " + l.package_label : "") +
+        ". Travel month: " + l.month + ". Travellers: " + l.pax + ".",
+      host: location.hostname, source: crmSource(attribution)
+    };
+    if (TEST_MODE || !CFG.CRM_WEBHOOK_URL) {
+      if (window.console) console.info("[Glabol Dubai] Test mode, not sent to the CRM:", body);
+      return Promise.resolve();
+    }
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 5000) : null;
+    return fetch(CFG.CRM_WEBHOOK_URL, {
+      method: "POST", headers: { "Content-Type": "application/json", "x-api-key": CFG.CRM_API_KEY },
+      body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined
+    }).catch(function(err){ if (window.console) console.error("[Glabol Dubai] CRM post failed:", err); })
+      .then(function(){ if (timer) clearTimeout(timer); });
   }
 
   function submit(F){
@@ -1246,17 +1319,27 @@ select.ctl option{color:var(--ink)}
       where: F.where,
       name: F.input("name").value.trim().replace(/\s+/g, " "),
       phone: "+91" + phone10, month: F.input("month").value, pax: F.input("pax").value,
-      package_id: chosen ? chosen.id : "", package_name: chosen ? chosen.name : ""
+      package_id: chosen ? chosen.id : "",
+      package_label: chosen ? chosen.name + " " + chosen.nights + "N/" + (chosen.nights + 1) + "D" : "",
+      price: chosen ? chosen.price : null
     };
     sending = true;
     var btn = F.root.querySelector("[data-submit]"), err = F.root.querySelector("[data-form-err]");
     btn.disabled = true; btn.textContent = "Sending…"; err.hidden = true;
-    post(payload("lead")).then(function(){
-      track("generate_lead", {
-        form_name: CFG.FORM_NAME, form_location: F.where,
-        lead: { id: leadId, package_id: lead.package_id, travel_month: lead.month, travellers: lead.pax, value: CFG.LEAD_VALUE, currency: "INR" },
-        user_data: { phone_number: lead.phone }
-      });
+
+    // Same columns as the Kashmir and Himachal sheets. "Form" says where the enquiry came from,
+    // plus the package when the visitor clicked Customize on one.
+    var sheetRow = {
+      lead_id: leadId, name: lead.name, phone: lead.phone,
+      month: lead.month, group_size: lead.pax,
+      form_location: CFG.DESTINATION + " " + F.where + (lead.package_label ? " - " + lead.package_label : "")
+    };
+    Object.keys(attribution).forEach(function(k){ sheetRow[k] = attribution[k]; });
+
+    Promise.all([postToSheet(sheetRow), postLeadToCRM(lead)]).then(function(){
+      // The events every destination page sends; the existing GTM tags fire on them unchanged
+      track("lead_form_submit", { lead_id: leadId, user_data: { phone_number: lead.phone } });
+      track("thank_you_page_view", { lead_id: leadId, transaction_id: leadId });
       showDone(phone10, F);
     }).catch(function(){
       sending = false; btn.disabled = false; btn.textContent = "Get free quote";
@@ -1269,9 +1352,12 @@ select.ctl option{color:var(--ink)}
   function showDone(phone10, from){
     var first = lead.name.split(" ")[0];
     var masked = "+91 " + phone10.slice(0, 2) + "XXX XX" + phone10.slice(7);
+    var budgetQ = (lead.package_label ? lead.package_label + " is " + inr(lead.price) : "Packages start at " + $("fromPrice").textContent) +
+      " per person, without flights. Does that fit your budget?";
     forms.forEach(function(F){
       F.root.querySelector("[data-done-title]").textContent = "Thanks, " + first + ". We've got your dates.";
       F.root.querySelector("[data-done-text]").textContent = "Our trip planner will call you on " + masked + " with your Dubai plan and price.";
+      F.root.querySelector("[data-budget-q]").textContent = budgetQ;
       F.form.hidden = true;
       F.root.querySelector("[data-done]").hidden = false;
       var flag = F.root.querySelector(".qflag"); if (flag) flag.hidden = true;
@@ -1280,22 +1366,41 @@ select.ctl option{color:var(--ink)}
     try { t.focus({ preventScroll: true }); } catch (e) { t.focus(); }
   }
 
-  var extraTimer = null;
-  function onExtra(e){
-    var chip = e.target.closest(".chip"); if (!chip) return;
-    var group = chip.parentNode, key = group.getAttribute("data-extra"), val = chip.textContent.trim();
-    extra[key] = val;
+  /* Thank-you questions: the same three as the other destination pages, with the same
+     values and the same Hot / Warm / Cold rule. Each answer updates the lead's sheet row. */
+  var QUESTIONS = ["budget_fit", "booking_timeline", "call_time"];
+  var CALL_TIMES = { Morning: "in the morning, between 9am and 12pm", Afternoon: "in the afternoon, between 12 and 5pm", Evening: "in the evening, between 5 and 9pm" };
+  function leadQuality(a){
+    if (a.budget_fit === "Too high") return "Cold";
+    if (!a.budget_fit || !a.booking_timeline) return "Partial";
+    return a.booking_timeline === "Just exploring" ? "Warm" : "Hot";
+  }
+  function onAnswer(e){
+    var chip = e.target.closest(".chip"); if (!chip || !lead) return;
+    var key = chip.parentNode.getAttribute("data-q"), val = chip.value;
+    if (!key) return;
+    answers[key] = val;
+    var quality = leadQuality(answers);
+    seq += 1;   // lets the sheet ignore an older answer that arrives late
     forms.forEach(function(F){
-      $$('[data-extra="' + key + '"] .chip', F.root).forEach(function(c){ c.setAttribute("aria-pressed", c.textContent.trim() === val ? "true" : "false"); });
-      F.root.querySelector("[data-saved]").textContent = "";
+      $$('[data-q="' + key + '"] .chip', F.root).forEach(function(c){ c.setAttribute("aria-pressed", c.value === val ? "true" : "false"); });
     });
-    clearTimeout(extraTimer);
-    extraTimer = setTimeout(function(){
-      post(payload("details")).then(function(){
-        forms.forEach(function(F){ F.root.querySelector("[data-saved]").textContent = "Saved. Your trip planner will see this."; });
-        track("lead_details", { lead_id: leadId, hotel_category: extra.hotel || "", flying_from: extra.city || "" });
-      }).catch(function(){});
-    }, 600);
+    var row = { type: "qualify", lead_id: leadId, seq: seq, lead_quality: quality };
+    QUESTIONS.forEach(function(q){ if (answers[q]) row[q] = answers[q]; });
+    postToSheet(row).catch(function(err){ if (window.console) console.error(err); });
+
+    if (quality === "Hot" && !qualifiedTracked) {
+      track("qualified_lead", { lead_id: leadId, budget_fit: answers.budget_fit, booking_timeline: answers.booking_timeline });
+      qualifiedTracked = true;
+    }
+    var all = QUESTIONS.every(function(q){ return answers[q]; });
+    if (all && !completeTracked) {
+      track("lead_questions_complete", { lead_id: leadId, lead_quality: quality, budget_fit: answers.budget_fit, booking_timeline: answers.booking_timeline, call_time: answers.call_time });
+      completeTracked = true;
+    }
+    var when = CALL_TIMES[answers.call_time];
+    var msg = all ? (when ? "Thanks. Your trip planner will call you " + when + "." : "Thanks. Your trip planner will call you soon.") : "Saved.";
+    forms.forEach(function(F){ F.root.querySelector("[data-saved]").textContent = msg; });
   }
 
   /* ---------- Dialogs ---------- */
