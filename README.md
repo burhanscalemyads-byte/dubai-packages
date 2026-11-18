@@ -17,11 +17,11 @@ Photos load from Unsplash and the hero video from Pexels (both free licences). F
 
 All settings are in `window.GLABOL_DUBAI` at the top of `index.html`.
 
-1. **PACKAGES**: the six Dubai trips, prices, activities and day-by-day plans are **placeholders**. Replace them with Glabol's real packages. The cards, filters, popup, "Starting at ₹..." price and the budget question all update from this list.
+1. **PACKAGES**: packages start at **₹45,000** per person (the 3-night Weekend Getaway). The other five trips, their prices and the day-by-day plans are still **placeholders**: replace them with Glabol's real packages. The cards, popup, "Starting at ₹..." price (always the cheapest package) and the budget question all update from this list.
    Each package has: `nights`, `hotel` (3/4/5), `transfers` (Shared/Private), `price`, `tags` (honeymoon/couple/family/friends), `flag` (ribbon text, or `""`), `img` (Unsplash photo id), `activities`, and `plan` (one `[title, text]` per day).
 2. **SHEET_ENDPOINT**: leads currently go to the **Kashmir sheet**, the way Himachal ran before it had its own (see Leads).
 3. **RATING / REVIEWS / SINCE**: check they match Glabol's Google listing today.
-4. **PHONE / WHATSAPP**: digits with country code. Confirm the WhatsApp number.
+4. **WHATSAPP**: `919203405171`, opening with "Hi Glabol! I'm planning a trip to Dubai. Please share your Dubai package details and prices." (`WHATSAPP_TEXT`). The page has no phone number or call buttons, by choice: visitors use the form or WhatsApp.
 5. **EMI_MONTHS**: leave at `0` unless no-cost EMI is really offered. When set (e.g. `6`), each card shows "₹X/m with no cost EMI".
 6. Inclusions, exclusions, FAQ and "Good to know" copy is written in the HTML. Check it with Glabol ops (visa included? hotel class in the base price?).
 
@@ -33,15 +33,14 @@ Google Ads final URL suffix, the same as the other destination pages:
 utm_source=google&utm_medium=cpc&campaign_id={campaignid}&adset_id={adgroupid}&ad_id={creative}&kw={keyword}
 ```
 
-Add `trip=` to the final URL to match the headline and filter to the ad group:
+Add `trip=` to the final URL to match the headline to the ad group. All six packages always show; the matching ones move to the top:
 
-| URL | Headline | Filter |
+| URL | Headline | Shown first |
 |---|---|---|
-| `?trip=honeymoon` | Dubai Honeymoon Packages | Honeymoon |
-| `?trip=family` | Dubai Family Packages | Family |
-| `?trip=luxury` | Dubai Luxury Packages | 5 star |
-| `?trip=budget` | Dubai Packages Under ₹50k | Below ₹50k |
-| (none) | Dubai Tour Packages | none |
+| `?trip=honeymoon` | Dubai Honeymoon Packages | Honeymoon packages |
+| `?trip=family` | Dubai Family Packages | Family packages |
+| `?trip=luxury` | Dubai Luxury Packages | 5-star packages |
+| (none) | Dubai Tour Packages | the usual order |
 
 ## Leads
 
@@ -82,9 +81,9 @@ Every ad tag lives in Glabol's GTM container, shared with the other destination 
 | `qualified_lead` | once, when the answers make the lead Hot | `lead_id`, `budget_fit`, `booking_timeline` |
 | `lead_questions_complete` | once, when all three questions are answered | `lead_id`, `lead_quality`, `budget_fit`, `booking_timeline`, `call_time` |
 
-The page also pushes `lead_form_start`, `cta_click`, `itinerary_open`, `filter_change`, `call_click`, `whatsapp_click` and `lead_post_error`. No GTM tags use them yet.
+The page also pushes `lead_form_start`, `cta_click`, `itinerary_open`, `whatsapp_click` and `lead_post_error`. No GTM tags use them yet.
 
-Calls and WhatsApp chats from the page aren't recorded in the sheet or CRM, unlike form enquiries.
+WhatsApp chats started from the page aren't recorded in the sheet or CRM, unlike form enquiries. `whatsapp_click` is there if you want GTM to count them.
 
 ## Test
 

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dubai Tour Packages from ₹34,999 | Glabol</title>
-<meta name="description" content="Dubai tour packages with hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and UAE visa. 3 to 6 nights from ₹34,999 per person. Customise any package and get a free quote from Glabol.">
+<title>Dubai Tour Packages from ₹45,000 | Glabol</title>
+<meta name="description" content="Dubai tour packages with hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and UAE visa. 3 to 6 nights from ₹45,000 per person. Customise any package and get a free quote from Glabol.">
 <meta name="theme-color" content="#0B2742">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dubai Tour Packages from ₹34,999 | Glabol">
+<meta property="og:title" content="Dubai Tour Packages from ₹45,000 | Glabol">
 <meta property="og:description" content="Hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and visa in one package. Customise it and get a free quote.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=70">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,8 @@
                   tags (Google Ads, GA4, Meta) live in GTM.
    Test copies on localhost never send leads; add ?nosend=1 to test on the
    live site without sending.
-   PHONE / WHATSAPP  Digits only, with country code.
+   WHATSAPP       Number with country code (digits only) and the message
+                  the chat opens with.
    RATING / REVIEWS  Shown in the trust strip. Keep these true.
    EMI_MONTHS     Set to 3, 6 etc. ONLY if no-cost EMI is really offered.
                   0 = no EMI line on the cards.
@@ -47,10 +48,8 @@ window.GLABOL_DUBAI = {
   DESTINATION: "Dubai",
   GTM_ID: "GTM-TTXFHSF9",
   FORM_NAME: "dubai_lp_v2",
-  PHONE: "918962245021",
-  PHONE_DISPLAY: "+91 89622 45021",
-  WHATSAPP: "918962245021",
-  WHATSAPP_TEXT: "Hi Glabol, I'd like a quote for a Dubai package.",
+  WHATSAPP: "919203405171",
+  WHATSAPP_TEXT: "Hi Glabol! I'm planning a trip to Dubai. Please share your Dubai package details and prices.",
   EMAIL: "info@glabol.com",
   RATING: "4.5",
   REVIEWS: "1,600+",
@@ -68,18 +67,17 @@ window.GLABOL_DUBAI = {
     posterMobile:  "https://images.unsplash.com/photo-1782078292081-8fb6de1c54df?auto=format&fit=crop&w=800&q=60"
   },
 
-  // ?trip=honeymoon | family | luxury | budget  -> headline + filter to match the ad
+  // ?trip=honeymoon | family | luxury  -> headline to match the ad; matching packages shown first
   VARIANTS: {
-    honeymoon: { h1: "Dubai Honeymoon Packages", filter: ["type", "honeymoon"] },
-    family:    { h1: "Dubai Family Packages",    filter: ["type", "family"] },
-    luxury:    { h1: "Dubai Luxury Packages",    filter: ["hotel", "5"] },
-    budget:    { h1: "Dubai Packages Under ₹50k", filter: ["budget", "lt50"] }
+    honeymoon: { h1: "Dubai Honeymoon Packages", tag: "honeymoon" },
+    family:    { h1: "Dubai Family Packages",    tag: "family" },
+    luxury:    { h1: "Dubai Luxury Packages",    hotel: 5 }
   },
 
   PACKAGES: [
     {
       id: "weekend", name: "Dubai Weekend Getaway", nights: 3, hotel: 3, transfers: "Shared",
-      price: 34999, tags: ["couple", "friends"], flag: "Quick getaway",
+      price: 45000, tags: ["couple", "friends"], flag: "Quick getaway",
       img: "photo-1765801122549-2c11dc9cbd78", alt: "Dubai Marina towers lit up at night, with boats on the water",
       activities: ["Dhow Cruise Dinner, Marina", "Dubai City Tour", "Desert Safari with BBQ Dinner", "Burj Khalifa At the Top"],
       plan: [
@@ -91,7 +89,7 @@ window.GLABOL_DUBAI = {
     },
     {
       id: "classic", name: "Classic Dubai", nights: 4, hotel: 3, transfers: "Shared",
-      price: 44999, tags: ["couple", "family", "friends"], flag: "Best for first-timers",
+      price: 52999, tags: ["couple", "family", "friends"], flag: "Best for first-timers",
       img: "photo-1686918269961-507270a5a238", alt: "The Museum of the Future in Dubai at golden hour",
       activities: ["Museum of the Future", "Burj Khalifa At the Top", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks"],
       plan: [
@@ -104,7 +102,7 @@ window.GLABOL_DUBAI = {
     },
     {
       id: "honeymoon", name: "Dubai Honeymoon", nights: 4, hotel: 4, transfers: "Private",
-      price: 54999, tags: ["honeymoon", "couple"], flag: "Honeymoon pick",
+      price: 59999, tags: ["honeymoon", "couple"], flag: "Honeymoon pick",
       img: "photo-1768463852019-4881a17a1c0e", alt: "A boat on the water in front of Dubai Marina towers at sunset",
       activities: ["Burj Khalifa At the Top, sunset slot", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai Frame", "Global Village"],
       plan: [
@@ -117,7 +115,7 @@ window.GLABOL_DUBAI = {
     },
     {
       id: "best", name: "Best of Dubai", nights: 5, hotel: 4, transfers: "Shared",
-      price: 62999, tags: ["couple", "family", "friends"], flag: "",
+      price: 64999, tags: ["couple", "family", "friends"], flag: "",
       img: "photo-1512453979798-5ea266f8880c", alt: "Burj Khalifa and Downtown Dubai skyline at dusk",
       activities: ["Burj Khalifa At the Top", "Museum of the Future", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks", "Global Village"],
       plan: [
@@ -377,24 +375,7 @@ select.ctl option{color:var(--ink)}
 .h2{margin:0;font-size:clamp(24px,2.6vw,32px);line-height:1.2;font-weight:800;color:var(--title);letter-spacing:-.015em}
 .h2-sub{margin:6px 0 0;font-size:15px;color:var(--ink-3)}
 .count{font-size:14px;font-weight:700;color:var(--ink-3)}
-.list-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
-@media (min-width:1000px){.list-grid{grid-template-columns:250px minmax(0,1fr)}}
 
-.filters{display:none}
-@media (min-width:1000px){
-  .filters{display:block;position:sticky;top:92px;background:#fff;border-radius:var(--r);padding:18px 18px 8px}
-}
-.fgroup{padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid var(--line)}
-.fgroup:last-of-type{border-bottom:0;margin-bottom:0}
-.fgroup h3{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0A7A48}
-.fcheck{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:14.5px;color:var(--ink);cursor:pointer}
-.fcheck input{width:18px;height:18px;margin:0;accent-color:var(--green);cursor:pointer}
-.fclear{display:block;margin:4px 0 10px}
-
-.fbar{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * var(--pad)) 14px;padding:2px var(--pad) 4px}
-.fbar::-webkit-scrollbar{display:none}
-.fbar .chip{flex:none;background:#fff}
-@media (min-width:1000px){.fbar{display:none}}
 
 .cards{display:grid;gap:18px}
 .pc{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 rgba(11,39,66,.04)}
@@ -444,9 +425,6 @@ select.ctl option{color:var(--ink)}
 .custom-txt{flex:1;min-width:220px}
 .custom-txt b{display:block;font-size:17px;font-weight:800}
 .custom-txt span{display:block;margin-top:2px;font-size:14px;color:rgba(255,255,255,.82)}
-.empty{padding:36px 20px;border-radius:var(--r);background:#fff;text-align:center}
-.empty b{display:block;font-size:17px;color:var(--title)}
-.empty p{margin:6px 0 14px;color:var(--ink-3);font-size:14.5px}
 .list-note{margin:16px 0 0;font-size:13px;color:var(--ink-3)}
 
 /* ---------- Sections ---------- */
@@ -544,7 +522,7 @@ select.ctl option{color:var(--ink)}
 
 /* ---------- Mobile action bar ---------- */
 .mbar{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:8px;
+  position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;
   padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -8px 24px rgba(11,39,66,.14);
   transform:translateY(115%);transition:transform .25s ease;
 }
@@ -600,11 +578,7 @@ select.ctl option{color:var(--ink)}
   <div class="wrap top-in">
     <a class="logo" href="https://glabol.com" aria-label="Glabol home"><img src="assets/glabol-logo-white.png" alt="Glabol" width="118" height="26"></a>
     <div class="top-r">
-      <a class="top-ico" id="topCall" href="tel:+918962245021" data-track="call_click">
-        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="currentColor"/></svg>
-        <span class="lbl" id="topCallLbl">+91 89622 45021</span><span class="vh">Call Glabol</span>
-      </a>
-      <a class="top-ico" id="topWa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">
+      <a class="top-ico" id="topWa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">
         <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
         <span class="lbl">WhatsApp</span><span class="vh">Chat with Glabol on WhatsApp</span>
       </a>
@@ -634,10 +608,10 @@ select.ctl option{color:var(--ink)}
           <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Transfers</li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sightseeing</li>
         </ul>
-        <p class="from">Starting at <b id="fromPrice">₹34,999</b> per person</p>
+        <p class="from">Starting at <b id="fromPrice">₹45,000</b> per person</p>
         <div class="hero-ctas">
           <a class="btn btn-green" href="#packages">Explore packages</a>
-          <a class="btn btn-ghost js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">Chat on WhatsApp</a>
+          <a class="btn btn-ghost js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">Chat on WhatsApp</a>
         </div>
       </div>
 
@@ -677,16 +651,10 @@ select.ctl option{color:var(--ink)}
           <h2 class="h2" id="pkgTitle">Dubai packages</h2>
           <p class="h2-sub">Prices per person on twin sharing, without international flights.</p>
         </div>
-        <span class="count" id="pkgCount" aria-live="polite"></span>
+        <span class="count" id="pkgCount"></span>
       </div>
-      <div class="list-grid">
-        <aside class="filters" id="filters" aria-label="Filter packages"></aside>
-        <div>
-          <div class="fbar" id="fbar" role="group" aria-label="Filter packages"></div>
-          <div class="cards" id="cards"></div>
-          <p class="list-note">Every package can be changed: add nights, upgrade hotels or swap activities. Your trip planner sends the final plan and price.</p>
-        </div>
-      </div>
+      <div class="cards" id="cards"></div>
+      <p class="list-note">Every package can be changed: add nights, upgrade hotels or swap activities. Your trip planner sends the final plan and price.</p>
     </div>
   </section>
 
@@ -792,7 +760,7 @@ select.ctl option{color:var(--ink)}
         <h2 class="h2" id="stepsTitle">How booking works</h2>
       </header>
       <ol class="steps">
-        <li><h3>Share your dates</h3><p>Fill in the form or call us. It takes under a minute.</p></li>
+        <li><h3>Share your dates</h3><p>Fill in the form or message us on WhatsApp. It takes under a minute.</p></li>
         <li><h3>Get your plan and price</h3><p>Your trip planner calls, then sends a day-by-day plan with the full cost on WhatsApp.</p></li>
         <li><h3>Book with 25%</h3><p>Pay 25% to confirm. The rest is due 30 days before you fly.</p></li>
         <li><h3>Fly to Dubai</h3><p>Your visa, hotel and tour vouchers reach you before the trip.</p></li>
@@ -815,7 +783,7 @@ select.ctl option{color:var(--ink)}
       <div class="faq-grid">
         <div class="faq-side">
           <h3 class="h2" style="font-size:22px">Questions people ask</h3>
-          <p>Something else? Call <a class="js-call js-phone-text" href="tel:+918962245021" data-track="call_click">+91 89622 45021</a> or <a class="js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">message us on WhatsApp</a>.</p>
+          <p>Something else? <a class="js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">Message us on WhatsApp</a>.</p>
         </div>
         <div class="faq">
           <details><summary>Are flights included?</summary><div class="ans"><p>Package prices don't include international flights, so you can fly from any city or use your own miles. Tell us where you're flying from and we'll add flights to your quote.</p></div></details>
@@ -839,7 +807,7 @@ select.ctl option{color:var(--ink)}
       </div>
       <div class="closing-actions">
         <button class="btn btn-green" type="button" data-open-lead="closing">Get free quote</button>
-        <a class="btn btn-ghost js-call" href="tel:+918962245021" data-track="call_click">Call us</a>
+        <a class="btn btn-ghost js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">Chat on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -855,8 +823,7 @@ select.ctl option{color:var(--ink)}
       <div>
         <h2 class="foot-h">Talk to us</h2>
         <ul>
-          <li><a class="js-call js-phone-text" href="tel:+918962245021" data-track="call_click">+91 89622 45021</a></li>
-          <li><a class="js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a></li>
+          <li><a class="js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a></li>
           <li><a id="footMail" href="mailto:info@glabol.com">info@glabol.com</a></li>
         </ul>
       </div>
@@ -879,10 +846,7 @@ select.ctl option{color:var(--ink)}
 
 <!-- Mobile action bar -->
 <div class="mbar" id="mbar" aria-hidden="true">
-  <a class="btn btn-line js-call" href="tel:+918962245021" data-track="call_click" aria-label="Call Glabol" tabindex="-1">
-    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="#1F2937"/></svg>
-  </a>
-  <a class="btn btn-line js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click" aria-label="WhatsApp Glabol" tabindex="-1">
+  <a class="btn btn-line js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click" aria-label="WhatsApp Glabol" tabindex="-1">
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1FA855" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/><path fill="#fff" d="M16.5 14.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
   </a>
   <button class="btn btn-green" type="button" data-open-lead="mobile_bar" tabindex="-1">Get free quote</button>
@@ -968,7 +932,7 @@ select.ctl option{color:var(--ink)}
       <p class="done-text" data-done-text></p>
       <div class="extra">
         <p class="extra-intro">3 quick questions so your trip planner can plan the call.</p>
-        <fieldset><legend data-budget-q>Packages start at ₹34,999 per person, without flights. Does that fit your budget?</legend>
+        <fieldset><legend data-budget-q>Packages start at ₹45,000 per person, without flights. Does that fit your budget?</legend>
           <div class="chips" data-q="budget_fit"><button type="button" class="chip" aria-pressed="false" value="Fits">Yes, that fits</button><button type="button" class="chip" aria-pressed="false" value="A bit high, but open">A bit high, but I'm open</button><button type="button" class="chip" aria-pressed="false" value="Too high">I need something cheaper</button></div>
         </fieldset>
         <fieldset><legend>When are you planning to book?</legend>
@@ -979,7 +943,7 @@ select.ctl option{color:var(--ink)}
         </fieldset>
         <p class="extra-saved" data-saved aria-live="polite"></p>
       </div>
-      <a class="btn btn-line btn-block js-wa" href="https://wa.me/918962245021" target="_blank" rel="noopener" data-track="whatsapp_click">
+      <a class="btn btn-line btn-block js-wa" href="https://wa.me/919203405171" target="_blank" rel="noopener" data-track="whatsapp_click">
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1FA855" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/><path fill="#fff" d="M16.5 14.1c-.25-.12-1.47-.72-1.7-.8-.23-.09-.4-.13-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06a6.7 6.7 0 01-3.33-2.9c-.25-.43.25-.4.72-1.34.08-.17.04-.31-.02-.43l-.76-1.83c-.2-.48-.4-.41-.56-.42h-.48a.92.92 0 00-.66.31 2.78 2.78 0 00-.87 2.07 4.83 4.83 0 001 2.57 11.05 11.05 0 004.24 3.74c1.57.68 2.19.74 2.98.62a2.53 2.53 0 001.66-1.17 2.06 2.06 0 00.14-1.17c-.06-.1-.23-.17-.48-.29z"/></svg>
         Chat with us on WhatsApp
       </a>
@@ -1012,14 +976,11 @@ select.ctl option{color:var(--ink)}
   function track(event, data){ var o = { event: event }; if (data) for (var k in data) o[k] = data[k]; window.dataLayer.push(o); }
 
   /* ---------- Contact details from settings ---------- */
-  var tel = "tel:+" + CFG.PHONE;
   var wa = "https://wa.me/" + CFG.WHATSAPP + (CFG.WHATSAPP_TEXT ? "?text=" + encodeURIComponent(CFG.WHATSAPP_TEXT) : "");
   function applyContacts(root){
-    $$(".js-call", root).forEach(function(a){ a.href = tel; });
     $$(".js-wa", root).forEach(function(a){ a.href = wa; });
-    $$(".js-phone-text", root).forEach(function(a){ a.textContent = CFG.PHONE_DISPLAY; });
   }
-  $("topCall").href = tel; $("topWa").href = wa; $("topCallLbl").textContent = CFG.PHONE_DISPLAY;
+  $("topWa").href = wa;
   applyContacts(document);
   $$(".js-rating").forEach(function(e){ e.textContent = CFG.RATING; });
   $$(".js-reviews").forEach(function(e){ e.textContent = CFG.REVIEWS; });
@@ -1059,58 +1020,14 @@ select.ctl option{color:var(--ink)}
     document.title = variant.h1 + " | Glabol";
   }
 
-  /* ---------- Filters ---------- */
-  var FILTERS = [
-    { key: "type",   label: "Travellers type", opts: [["honeymoon","Honeymoon"],["couple","Couple"],["family","Family"],["friends","Friends"]] },
-    { key: "budget", label: "Budget",          opts: [["lt50","Below ₹50k"],["50to75","₹50k – ₹75k"],["gt75","Above ₹75k"]] },
-    { key: "nights", label: "Duration",        opts: [["3-4","3–4 nights"],["5-6","5–6 nights"]] },
-    { key: "hotel",  label: "Hotel rating",    opts: [["5","5 star"],["4","4 star"],["3","3 star"]] }
-  ];
-  var sel = { type: [], budget: [], nights: [], hotel: [] };
-  if (variant && variant.filter) sel[variant.filter[0]].push(variant.filter[1]);
-
-  function matchOne(p, key, v){
-    if (key === "type") return p.tags.indexOf(v) > -1;
-    if (key === "budget") return v === "lt50" ? p.price < 50000 : v === "50to75" ? (p.price >= 50000 && p.price <= 75000) : p.price > 75000;
-    if (key === "nights") return v === "3-4" ? p.nights <= 4 : (p.nights >= 5 && p.nights <= 6);
-    if (key === "hotel") return String(p.hotel) === v;
-    return true;
+  // Packages that match the ad's ?trip= go first; every package is always shown
+  function fitsVariant(p){
+    if (!variant) return false;
+    if (variant.tag) return p.tags.indexOf(variant.tag) > -1;
+    if (variant.hotel) return p.hotel === variant.hotel;
+    return false;
   }
-  function matches(p){
-    return FILTERS.every(function(f){
-      var picked = sel[f.key];
-      return !picked.length || picked.some(function(v){ return matchOne(p, f.key, v); });
-    });
-  }
-  var anyFilter = function(){ return FILTERS.some(function(f){ return sel[f.key].length; }); };
-
-  $("filters").innerHTML = FILTERS.map(function(f){
-    return '<div class="fgroup"><h3>' + esc(f.label) + '</h3>' + f.opts.map(function(o){
-      return '<label class="fcheck"><input type="checkbox" data-f="' + f.key + '" value="' + o[0] + '">' + esc(o[1]) + '</label>';
-    }).join("") + '</div>';
-  }).join("") + '<button type="button" class="link fclear" data-clear hidden>Clear all filters</button>';
-  $("fbar").innerHTML = FILTERS.map(function(f){
-    return f.opts.map(function(o){
-      return '<button type="button" class="chip" aria-pressed="false" data-f="' + f.key + '" data-v="' + o[0] + '">' + esc(o[1]) + '</button>';
-    }).join("");
-  }).join("");
-
-  function toggle(key, v, on){
-    var a = sel[key], i = a.indexOf(v);
-    if (on && i < 0) a.push(v);
-    if (!on && i > -1) a.splice(i, 1);
-    syncFilters(); render();
-    track("filter_change", { filter: key, value: v, on: !!on });
-  }
-  function syncFilters(){
-    $$('#filters input[data-f]').forEach(function(c){ c.checked = sel[c.getAttribute("data-f")].indexOf(c.value) > -1; });
-    $$('#fbar .chip').forEach(function(c){ c.setAttribute("aria-pressed", sel[c.getAttribute("data-f")].indexOf(c.getAttribute("data-v")) > -1 ? "true" : "false"); });
-    $$("[data-clear]").forEach(function(b){ b.hidden = !anyFilter(); });
-  }
-  function clearFilters(){ FILTERS.forEach(function(f){ sel[f.key] = []; }); syncFilters(); render(); }
-  $("filters").addEventListener("change", function(e){ var c = e.target; if (c.matches("input[data-f]")) toggle(c.getAttribute("data-f"), c.value, c.checked); });
-  $("fbar").addEventListener("click", function(e){ var c = e.target.closest(".chip"); if (c) toggle(c.getAttribute("data-f"), c.getAttribute("data-v"), c.getAttribute("aria-pressed") !== "true"); });
-  document.addEventListener("click", function(e){ if (e.target.closest("[data-clear]")) clearFilters(); });
+  var ORDERED = PACKAGES.filter(fitsVariant).concat(PACKAGES.filter(function(p){ return !fitsVariant(p); }));
 
   /* ---------- Package cards ---------- */
   var CHECK = '<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#09B367" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -1147,16 +1064,13 @@ select.ctl option{color:var(--ink)}
     '<button type="button" class="btn btn-green" data-open-lead="custom_banner">Plan my custom trip</button></div>';
 
   function render(){
-    var list = PACKAGES.filter(matches);
-    var html = list.map(card);
-    if (html.length >= 2) html.splice(2, 0, CUSTOM); else html.push(CUSTOM);
-    if (!list.length) html = ['<div class="empty"><b>No package matches all these filters.</b><p>Clear a filter, or tell us what you want and we\'ll build it.</p><button type="button" class="btn btn-line" data-clear>Clear filters</button></div>', CUSTOM];
+    var html = ORDERED.map(card);
+    html.splice(Math.min(2, html.length), 0, CUSTOM);
     $("cards").innerHTML = html.join("");
-    $("pkgCount").textContent = list.length === PACKAGES.length ? PACKAGES.length + " packages" : list.length + " of " + PACKAGES.length + " packages";
-    var pool = list.length ? list : PACKAGES;
-    $("fromPrice").textContent = inr(Math.min.apply(null, pool.map(function(p){ return p.price; })));
+    $("pkgCount").textContent = PACKAGES.length + " packages";
+    // "Starting at" is always the cheapest package (₹45,000), whichever ad brought the visitor
+    $("fromPrice").textContent = inr(Math.min.apply(null, PACKAGES.map(function(p){ return p.price; })));
   }
-  syncFilters();
   render();
 
   /* ---------- Forms (hero card + popup) ---------- */
@@ -1343,7 +1257,7 @@ select.ctl option{color:var(--ink)}
       showDone(phone10, F);
     }).catch(function(){
       sending = false; btn.disabled = false; btn.textContent = "Get free quote";
-      err.textContent = "We couldn't send your details. Check your connection and try again, or call " + CFG.PHONE_DISPLAY + ".";
+      err.textContent = "We couldn't send your details. Check your connection and try again, or message us on WhatsApp.";
       err.hidden = false;
       track("lead_post_error", { form_name: CFG.FORM_NAME });
     });
