@@ -373,7 +373,7 @@ select.ctl option{color:var(--ink)}
 .listing{background:var(--bg);padding:clamp(32px,5vw,56px) 0 clamp(48px,6vw,72px)}
 .list-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 20px;margin-bottom:18px}
 .h2{margin:0;font-size:clamp(24px,2.6vw,32px);line-height:1.2;font-weight:800;color:var(--title);letter-spacing:-.015em}
-.h2-sub{margin:6px 0 0;font-size:15px;color:var(--ink-3)}
+.h2-sub{margin:6px 0 0;font-size:15px;color:var(--ink-3);text-wrap:pretty}
 .count{font-size:14px;font-weight:700;color:var(--ink-3)}
 
 
@@ -601,12 +601,12 @@ select.ctl option{color:var(--ink)}
       <div class="hero-copy">
         <span class="rating-pill"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l2 4.3 4.7.5-3.5 3.2 1 4.6L8 11.5l-4.2 2.3 1-4.6L1.3 6l4.7-.5z" fill="#F5A524"/></svg><b class="js-rating">4.5</b> on Google, <span class="js-reviews">1,600+</span> reviews</span>
         <h1 class="hero-h1" id="h1">Dubai Tour Packages</h1>
-        <p class="hero-sub">Hotels, Burj Khalifa, desert safari, dhow cruise dinner, transfers and visa in one booking. Customise every day of your trip.</p>
+        <p class="hero-sub">Skip the visa paperwork, the endless agent quotes and the surprise bills. One trip planner sorts your whole Dubai trip, with the full price upfront.</p>
         <ul class="hero-ticks">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>UAE visa</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Hotels</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Transfers</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sightseeing</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Visa filed for you</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Veg and Jain food options</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full price before you pay</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#5FE3A1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Help on WhatsApp through your trip</li>
         </ul>
         <p class="from">Starting at <b id="fromPrice">₹45,000</b> per person</p>
         <div class="hero-ctas">
@@ -649,7 +649,7 @@ select.ctl option{color:var(--ink)}
       <div class="list-head">
         <div>
           <h2 class="h2" id="pkgTitle">Dubai packages</h2>
-          <p class="h2-sub">Prices per person on twin sharing, without international flights.</p>
+          <p class="h2-sub">Per person on twin sharing. Tell us your city and we add flights, so you get one final price.</p>
         </div>
         <span class="count" id="pkgCount"></span>
       </div>
@@ -662,24 +662,24 @@ select.ctl option{color:var(--ink)}
   <section class="sec" aria-labelledby="whyTitle">
     <div class="wrap">
       <header class="sec-head">
-        <h2 class="h2" id="whyTitle">Why book Dubai with Glabol</h2>
+        <h2 class="h2" id="whyTitle">The usual Dubai trip worries, sorted</h2>
       </header>
       <div class="why">
         <div class="why-item">
           <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-          <h3>Visa handled</h3><p>Send passport scans. We file your UAE tourist visa.</p>
+          <h3>Visa without the paperwork stress</h3><p>Send passport and photo scans on WhatsApp. We file your UAE visa and keep you posted.</p>
         </div>
         <div class="why-item">
-          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-          <h3>Hotels you pick</h3><p>3, 4 or 5-star, in the area that suits your plans.</p>
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8h6M9 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>No surprise costs later</h3><p>GST, TCS and the hotel tourism fee are listed before you pay, so nothing catches you out.</p>
         </div>
         <div class="why-item">
-          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="7" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="17" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
-          <h3>Every day customisable</h3><p>Add nights, swap activities, change the pace.</p>
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v18M5 3v5a2 2 0 004 0V3M17 21V3c-2 0-3.5 2.5-3.5 6.5S15 14 17 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Food the whole family eats</h3><p>Veg options at every included dinner, Jain meals on request, and Indian restaurants all over Dubai.</p>
         </div>
         <div class="why-item">
-          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-          <h3>One trip planner</h3><p>The same person from your first call to your flight home.</p>
+          <div class="why-ico"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17.5" cy="9.5" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 14.3c2.3.4 4 2.6 4 5.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Paced for parents and kids</h3><p>Tell us who's travelling. We plan fewer early starts and free time where you need it.</p>
         </div>
       </div>
     </div>
@@ -690,7 +690,7 @@ select.ctl option{color:var(--ink)}
     <div class="wrap">
       <header class="sec-head">
         <h2 class="h2" id="todoTitle">Top things to do in Dubai</h2>
-        <p class="h2-sub">The big sights are in every package. The rest depends on how many nights you pick.</p>
+        <p class="h2-sub">Tickets and transfers are booked before you land, so you spend your days seeing Dubai, not sorting it out.</p>
       </header>
       <div class="todo">
         <figure class="tile tile-tall">
@@ -726,7 +726,7 @@ select.ctl option{color:var(--ink)}
     <div class="wrap">
       <header class="sec-head">
         <h2 class="h2" id="inclTitle">What's included, and what's not</h2>
-        <p class="h2-sub">You see the full list before you pay anything.</p>
+        <p class="h2-sub">Everything you're paying for, and everything you're not, is listed before you book.</p>
       </header>
       <div class="incl">
         <div class="incl-card">
@@ -803,7 +803,7 @@ select.ctl option{color:var(--ink)}
     <div class="wrap closing-in">
       <div>
         <h2 id="closeTitle">Tell us your dates. We'll plan Dubai around them.</h2>
-        <p>Free day-by-day plan and full price, with no obligation to book.</p>
+        <p>Stop comparing ten copy-paste itineraries. Get one plan built for your dates and your family, free.</p>
       </div>
       <div class="closing-actions">
         <button class="btn btn-green" type="button" data-open-lead="closing">Get free quote</button>
@@ -889,8 +889,8 @@ select.ctl option{color:var(--ink)}
   <span class="qflag"><svg width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><path d="M1 12V1h8.5L7.5 4.2 9.5 7.5H2" fill="#073B22"/></svg>FREE QUOTE</span>
   <form class="qform" novalidate>
     <div class="qbody">
-      <h2 class="qtitle" data-title>Plan your Dubai trip</h2>
-      <p class="qlede">Our trip planner will call you with a day-by-day plan and the full price.</p>
+      <h2 class="qtitle" data-title>Get your Dubai plan and price</h2>
+      <p class="qlede">A day-by-day plan and the full price for your dates. Free, with no obligation to book.</p>
       <div class="qpkg" data-pkg hidden>
         <span>Package: <b data-pkg-name></b></span>
         <button type="button" data-pkg-x aria-label="Remove this package from the quote"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
@@ -949,7 +949,7 @@ select.ctl option{color:var(--ink)}
       </a>
     </div>
   </div>
-  <div class="qstrip"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#4F3BD8"/><path d="M4.6 8.3l2.2 2.1 4.6-4.7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Visa, hotel and sightseeing in one booking</div>
+  <div class="qstrip"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#4F3BD8"/><path d="M4.6 8.3l2.2 2.1 4.6-4.7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>One call from your own trip planner. No spam.</div>
 </template>
 
 <div class="preview" id="previewNote" hidden><b>Test mode.</b> Leads from this address aren't sent to the sheet or the CRM.</div>
@@ -1060,7 +1060,7 @@ select.ctl option{color:var(--ink)}
     '</article>';
   }
   var CUSTOM = '<div class="custom"><span class="custom-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="7" r="2.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="14" cy="17" r="2.5" fill="none" stroke="#fff" stroke-width="2"/></svg></span>' +
-    '<div class="custom-txt"><b>Want something different?</b><span>Tell us your dates, budget and hotel. We\'ll build a Dubai plan around them.</span></div>' +
+    '<div class="custom-txt"><b>Travelling with parents, kids or a big group?</b><span>Tell us who\'s coming and your budget. We\'ll pace the plan around them.</span></div>' +
     '<button type="button" class="btn btn-green" data-open-lead="custom_banner">Plan my custom trip</button></div>';
 
   function render(){
@@ -1332,7 +1332,7 @@ select.ctl option{color:var(--ink)}
   function openLead(where, p, opener){
     if (p !== undefined) setPackage(p);
     var F = forms.filter(function(x){ return x.where === "popup"; })[0];
-    F.root.querySelector("[data-title]").textContent = p ? "Customize " + p.name : "Plan your Dubai trip";
+    F.root.querySelector("[data-title]").textContent = p ? "Customize " + p.name : "Get your Dubai plan and price";
     openDlg(leadDlg, opener);
     if (!F.form.hidden) setTimeout(function(){ F.input("name").focus(); }, 30);
     track("cta_click", { cta_location: where, package_id: p ? p.id : "" });
