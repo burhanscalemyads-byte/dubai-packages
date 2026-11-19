@@ -1092,6 +1092,7 @@ select.ctl option{color:var(--ink)}
   /* ---------- Forms (hero card + popup) ---------- */
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   var leadId = makeId(), lead = null, chosen = null, started = false, sending = false;
+  var sheetReady = Promise.resolve();   // settles once the lead's sheet row request has finished
   var answers = {}, seq = 0, qualifiedTracked = false, completeTracked = false;
   var forms = [];
 
@@ -1219,7 +1220,8 @@ select.ctl option{color:var(--ink)}
     if (/facebook|instagram|meta|^fb$|^ig$/.test(s)) return "Meta Ads";
     return "Website";
   }
-  // Never throws and never waits more than 5s, so the CRM can't hold up or lose a lead
+  // Never throws and never waits more than 5s, so the CRM can't hold up or lose a lead.
+  // Resolves true when the CRM accepted the lead.
   function postLeadToCRM(l){
     var body = {
       name: l.name, phone: l.phone, email: "", destination: CFG.DESTINATION,
@@ -1236,8 +1238,10 @@ select.ctl option{color:var(--ink)}
     return fetch(CFG.CRM_WEBHOOK_URL, {
       method: "POST", headers: { "Content-Type": "application/json", "x-api-key": CFG.CRM_API_KEY },
       body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined
-    }).catch(function(err){ if (window.console) console.error("[Glabol Dubai] CRM post failed:", err); })
-      .then(function(){ if (timer) clearTimeout(timer); });
+    }).then(function(r){ return r.ok; }, function(err){
+      if (window.console) console.error("[Glabol Dubai] CRM post failed:", err);
+      return false;
+    }).then(function(ok){ if (timer) clearTimeout(timer); return ok; });
   }
 
   function submit(F){
@@ -1267,7 +1271,13 @@ select.ctl option{color:var(--ink)}
     };
     Object.keys(attribution).forEach(function(k){ sheetRow[k] = attribution[k]; });
 
-    Promise.all([postToSheet(sheetRow), postLeadToCRM(lead)]).then(function(){
+    // The thank-you shows as soon as the CRM has the lead (well under a second). The Google
+    // Sheet takes about 4 s (Apps Script), so it keeps saving in the background: its request uses
+    // keepalive and finishes even if the visitor closes the tab. Only when the CRM didn't take the
+    // lead does the page wait for the sheet, and it shows the error if that fails too.
+    var sheetSent = postToSheet(sheetRow);
+    sheetReady = sheetSent.catch(function(err){ if (window.console) console.error("[Glabol Dubai] Sheet post failed:", err); });
+    postLeadToCRM(lead).then(function(crmOk){ return crmOk ? null : sheetSent; }).then(function(){
       // The events every destination page sends; the existing GTM tags fire on them unchanged
       track("lead_form_submit", { lead_id: leadId, user_data: { phone_number: lead.phone } });
       track("thank_you_page_view", { lead_id: leadId, transaction_id: leadId });
@@ -1318,7 +1328,8 @@ select.ctl option{color:var(--ink)}
     });
     var row = { type: "qualify", lead_id: leadId, seq: seq, lead_quality: quality };
     QUESTIONS.forEach(function(q){ if (answers[q]) row[q] = answers[q]; });
-    postToSheet(row).catch(function(err){ if (window.console) console.error(err); });
+    // Waits for the lead's own row, so an answer tapped straight away still finds it
+    sheetReady.then(function(){ return postToSheet(row); }).catch(function(err){ if (window.console) console.error(err); });
 
     if (quality === "Hot" && !qualifiedTracked) {
       track("qualified_lead", { lead_id: leadId, budget_fit: answers.budget_fit, booking_timeline: answers.booking_timeline });
