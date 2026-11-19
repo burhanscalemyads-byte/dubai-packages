@@ -17,8 +17,8 @@ Photos load from Unsplash and the hero video from Pexels (both free licences). F
 
 All settings are in `window.GLABOL_DUBAI` at the top of `index.html`.
 
-1. **PACKAGES**: packages start at **₹45,000** per person (the 3-night Weekend Getaway). The other five trips, their prices and the day-by-day plans are still **placeholders**: replace them with Glabol's real packages. The cards, popup, "Starting at ₹..." price (always the cheapest package) and the budget question all update from this list.
-   Each package has: `nights`, `hotel` (3/4/5), `transfers` (Shared/Private), `price`, `tags` (honeymoon/couple/family/friends), `flag` (ribbon text, or `""`), `img` (Unsplash photo id), `activities`, and `plan` (one `[title, text]` per day).
+1. **PACKAGES**: Glabol's three Dubai packages, each with an Abu Dhabi day trip: **Dubai Essentials** 4N/5D ₹45,000, **Dubai Explorer** 5N/6D ₹55,000 and **Dubai with Atlantis** 6N/7D ₹70,000, per person. The cards, popup, "Starting at ₹..." price (always the cheapest package) and the budget question all update from this list.
+   Each package has: `id`, `name`, `nights`, `route` (the line under the name), `price`, `flag` (ribbon text, or `""`), `img` (Unsplash photo id), `activities` (the first ones show on the card) and `plan` (one `[title, text]` per day). Add `hotel: 4` to show a star rating on the card. Transfers always show as just "Transfers".
 2. **SHEET_ENDPOINT**: leads currently go to the **Kashmir sheet**, the way Himachal ran before it had its own (see Leads).
 3. **RATING / REVIEWS / SINCE**: check they match Glabol's Google listing today.
 4. **WHATSAPP**: `919203405171`, opening with "Hi Glabol! I'm planning a trip to Dubai. Please share your Dubai package details and prices." (`WHATSAPP_TEXT`). The page has no phone number or call buttons, by choice: visitors use the form or WhatsApp.
@@ -27,20 +27,27 @@ All settings are in `window.GLABOL_DUBAI` at the top of `index.html`.
 
 ## Ad URLs
 
-Google Ads final URL suffix, the same as the other destination pages:
+The Dubai search campaign (`SMA_Search_DubaiPackage_18.11.2026`) has this final URL suffix:
 
 ```
-utm_source=google&utm_medium=cpc&campaign_id={campaignid}&adset_id={adgroupid}&ad_id={creative}&kw={keyword}
+utm_source=google&utm_medium=cpc&utm_campaign=dubai_search&campaignid={campaignid}&adgroupid={adgroupid}&creative={creative}&kw={keyword}&matchtype={matchtype}&device={device}
 ```
 
-Add `trip=` to the final URL to match the headline to the ad group. All six packages always show; the matching ones move to the top:
+The main headline, the form title and the first package follow the ad group (`VARIANTS` in the settings). All three packages always show. The page uses the first match:
 
-| URL | Headline | Shown first |
-|---|---|---|
-| `?trip=honeymoon` | Dubai Honeymoon Packages | Honeymoon packages |
-| `?trip=family` | Dubai Family Packages | Family packages |
-| `?trip=luxury` | Dubai Luxury Packages | 5-star packages |
-| (none) | Dubai Tour Packages | the usual order |
+1. `utm_content=` or `trip=` naming a variant: `family`, `honeymoon`, `cost`, `india` or `tour`
+2. `adgroupid=` (or `adset_id=`) listed in a variant's `adgroups`
+3. a word from a variant's `words` in `utm_content`, `trip`, `utm_campaign` or the keyword (`kw` / `utm_term`)
+
+| Ad group (id) | Headline | Form title | Shown first |
+|---|---|---|---|
+| Dubai Tour Packages (203700663793) | Dubai Tour Packages | Get your Dubai plan and price | the usual order |
+| Dubai Family Packages (199441917782) | Dubai Family Packages | Get your family's Dubai plan and price | 6N, ribbon "Family pick" |
+| Dubai Honeymoon & Couple (203237750058) | Dubai Honeymoon & Couple Packages | Get your Dubai honeymoon plan and price | 5N, ribbon "Honeymoon pick" |
+| Dubai Trip Cost (203700668553) | Dubai Trip Cost from ₹45,000 | Get your Dubai trip cost | 4N, ribbon "Lowest price" |
+| Dubai Packages From India (205301354794) | Dubai Packages from India | Get your Dubai plan and price | the usual order |
+
+No match shows "Dubai Tour Packages". For a new ad group, add its id to a variant's `adgroups`, or put `utm_content=<variant>` in its URL.
 
 ## Leads
 
@@ -51,7 +58,7 @@ Every enquiry is sent to the **Google Sheet** and the **Glabol CRM** at the same
 | Timestamp | Name | Phone | Travel month | Travellers | Lead quality | Budget fit | Booking timeline | Best time to call | Source | Medium | Campaign ID | Adset ID | Ad ID | Keyword | GCLID | Landing page | Form | Lead ID |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
-- **Form** says where the enquiry came from and the package, e.g. `Dubai hero` or `Dubai popup - Dubai Honeymoon 4N/5D`.
+- **Form** says where the enquiry came from and the package, e.g. `Dubai hero` or `Dubai popup - Dubai Explorer 5N/6D`.
 - **For now the URL is the Kashmir sheet.** Filter its "Form" or "Landing page" column for Dubai. Its email alerts still say "New Kashmir lead".
 - **To give Dubai its own sheet** (about 5 minutes): follow the steps at the top of [`tools/google-sheet-leads.gs`](tools/google-sheet-leads.gs). That copy already says "Dubai" in its alerts. Put the new web app URL in `SHEET_ENDPOINT`.
 
@@ -62,7 +69,7 @@ Every enquiry is sent to the **Google Sheet** and the **Glabol CRM** at the same
 | `name`, `phone` | from the form; phone as +91XXXXXXXXXX |
 | `email` | empty |
 | `destination` | `Dubai` |
-| `message` | "Interested in Dubai package: Classic Dubai 4N/5D. Travel month: Dec 2026. Travellers: 2 people." |
+| `message` | "Interested in Dubai package: Dubai Essentials 4N/5D. Travel month: Dec 2026. Travellers: 2 people." |
 | `host` | the page's domain, e.g. dubai.glabol.com |
 | `source` | "Google Ads" for Google ad clicks, "Meta Ads" for Facebook or Instagram, "Website" otherwise |
 

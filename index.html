@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dubai Tour Packages from ₹45,000 | Glabol</title>
-<meta name="description" content="Dubai tour packages with hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and UAE visa. 3 to 6 nights from ₹45,000 per person. Customise any package and get a free quote from Glabol.">
+<meta name="description" content="Dubai tour packages with hotel, Burj Khalifa, desert safari, dhow cruise dinner, an Abu Dhabi day trip, transfers and UAE visa. 4 to 6 nights from ₹45,000 per person. Customise any package and get a free quote from Glabol.">
 <meta name="theme-color" content="#0B2742">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dubai Tour Packages from ₹45,000 | Glabol">
-<meta property="og:description" content="Hotel, Burj Khalifa, desert safari, dhow cruise dinner, transfers and visa in one package. Customise it and get a free quote.">
+<meta property="og:description" content="Hotel, Burj Khalifa, desert safari, dhow cruise dinner, an Abu Dhabi day trip, transfers and visa in one package. Customise it and get a free quote.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=70">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,8 +38,9 @@
                   0 = no EMI line on the cards.
    HERO_VIDEO     Background clips (Pexels, free licence). Best practice:
                   host copies on Glabol's own server/CDN and change the URLs.
-   PACKAGES       PLACEHOLDER trips and prices. Replace with Glabol's
-                  real Dubai packages before going live.
+   VARIANTS       Main headline per Google Ads ad group (notes above VARIANTS).
+   PACKAGES       Glabol's three Dubai packages (4N, 5N, 6N), Nov 2026. Cards,
+                  "Starting at" price and day-by-day popups update from this list.
    ================================================================== */
 window.GLABOL_DUBAI = {
   SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbwYnAfwqPfea57MW3LadpPw1Yg-5xLaTna93DhnYOvCp25B4wu8R7pwIYbnUkKYeakj/exec",   // Kashmir sheet (temporary)
@@ -67,93 +68,93 @@ window.GLABOL_DUBAI = {
     posterMobile:  "https://images.unsplash.com/photo-1782078292081-8fb6de1c54df?auto=format&fit=crop&w=800&q=60"
   },
 
-  // ?trip=honeymoon | family | luxury  -> headline to match the ad; matching packages shown first
+  /* Main headline per Google Ads ad group. The page uses the first match:
+       1. ?utm_content= or ?trip= naming a variant below, e.g. utm_content=family
+       2. ?adgroupid= (or ?adset_id=) listed in "adgroups" (the Dubai search campaign's URL suffix sends it)
+       3. a word from "words" found in utm_content, trip, utm_campaign or the search
+          keyword (kw / utm_term)
+     No match: "Dubai Tour Packages".
+     h1    main headline; {from} becomes the cheapest package price
+     form  title of the quote form
+     pick  [package id, ribbon]: that package is listed first, with this ribbon */
   VARIANTS: {
-    honeymoon: { h1: "Dubai Honeymoon Packages", tag: "honeymoon" },
-    family:    { h1: "Dubai Family Packages",    tag: "family" },
-    luxury:    { h1: "Dubai Luxury Packages",    hotel: 5 }
+    family: {
+      adgroups: ["199441917782"],   // Dubai Family Packages
+      words: ["family", "families", "kids", "kid", "children", "child", "parents"],
+      h1: "Dubai Family Packages",
+      form: "Get your family's Dubai plan and price",
+      pick: ["dubai-6n", "Family pick"]
+    },
+    honeymoon: {
+      adgroups: ["203237750058"],   // Dubai Honeymoon & Couple
+      words: ["honeymoon", "honeymoons", "honeymooners", "couple", "couples", "romantic", "anniversary"],
+      h1: "Dubai Honeymoon & Couple Packages",
+      form: "Get your Dubai honeymoon plan and price",
+      pick: ["dubai-5n", "Honeymoon pick"]
+    },
+    cost: {
+      adgroups: ["203700668553"],   // Dubai Trip Cost
+      words: ["cost", "costs", "price", "prices", "pricing", "rate", "rates", "budget", "cheap", "cheapest", "affordable", "expense", "expenses", "how much"],
+      h1: "Dubai Trip Cost from {from}",
+      form: "Get your Dubai trip cost",
+      pick: ["dubai-4n", "Lowest price"]
+    },
+    india: {
+      adgroups: ["205301354794"],   // Dubai Packages From India
+      words: ["india", "indian", "delhi", "mumbai", "bangalore", "bengaluru", "hyderabad", "chennai", "kolkata", "pune", "ahmedabad", "jaipur", "kochi", "lucknow", "chandigarh", "indore"],
+      h1: "Dubai Packages from India"
+    },
+    tour: {
+      adgroups: ["203700663793"],   // Dubai Tour Packages
+      words: [],
+      h1: "Dubai Tour Packages"
+    }
   },
 
   PACKAGES: [
     {
-      id: "weekend", name: "Dubai Weekend Getaway", nights: 3, hotel: 3, transfers: "Shared",
-      price: 45000, tags: ["couple", "friends"], flag: "Quick getaway",
-      img: "photo-1765801122549-2c11dc9cbd78", alt: "Dubai Marina towers lit up at night, with boats on the water",
-      activities: ["Dhow Cruise Dinner, Marina", "Dubai City Tour", "Desert Safari with BBQ Dinner", "Burj Khalifa At the Top"],
-      plan: [
-        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
-        ["City tour and desert safari", "Morning tour of Jumeirah Mosque, Burj Al Arab, Palm Jumeirah and the Dubai Frame. Afternoon desert safari: dune drive, camel ride, and BBQ dinner with live shows."],
-        ["Burj Khalifa and Dubai Mall", "Free morning. Evening at Burj Khalifa At the Top (124th and 125th floors), then the Dubai Fountain show."],
-        ["Fly home", "Check out and airport drop."]
-      ]
-    },
-    {
-      id: "classic", name: "Classic Dubai", nights: 4, hotel: 3, transfers: "Shared",
-      price: 52999, tags: ["couple", "family", "friends"], flag: "Best for first-timers",
-      img: "photo-1686918269961-507270a5a238", alt: "The Museum of the Future in Dubai at golden hour",
-      activities: ["Museum of the Future", "Burj Khalifa At the Top", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks"],
-      plan: [
-        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
-        ["City tour and desert safari", "Morning city tour with photo stops at Burj Al Arab and Palm Jumeirah. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
-        ["Museum of the Future and Burj Khalifa", "Morning at the Museum of the Future. Evening at Burj Khalifa At the Top and the Dubai Fountain."],
-        ["Old Dubai and Global Village", "Abra ride across Dubai Creek to the Gold and Spice Souks. Evening at Global Village (open October to May)."],
-        ["Fly home", "Check out and airport drop."]
-      ]
-    },
-    {
-      id: "honeymoon", name: "Dubai Honeymoon", nights: 4, hotel: 4, transfers: "Private",
-      price: 59999, tags: ["honeymoon", "couple"], flag: "Honeymoon pick",
-      img: "photo-1768463852019-4881a17a1c0e", alt: "A boat on the water in front of Dubai Marina towers at sunset",
-      activities: ["Burj Khalifa At the Top, sunset slot", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai Frame", "Global Village"],
-      plan: [
-        ["Arrive in Dubai", "Private airport pick-up and check-in. Evening dhow cruise dinner along Dubai Marina."],
-        ["Desert safari", "Free morning. Afternoon desert safari: dune drive, camel ride, sunset photos in the dunes and BBQ dinner."],
-        ["Burj Khalifa at sunset", "Burj Khalifa At the Top in the sunset slot, then the Dubai Fountain show at Dubai Mall."],
-        ["Dubai Frame and Global Village", "Afternoon at the Dubai Frame. Evening at Global Village (open October to May)."],
-        ["Fly home", "Check out and private airport drop."]
-      ]
-    },
-    {
-      id: "best", name: "Best of Dubai", nights: 5, hotel: 4, transfers: "Shared",
-      price: 64999, tags: ["couple", "family", "friends"], flag: "",
+      id: "dubai-4n", name: "Dubai Essentials", nights: 4,
+      route: "Dubai, with an Abu Dhabi day trip",
+      price: 45000, flag: "",
       img: "photo-1512453979798-5ea266f8880c", alt: "Burj Khalifa and Downtown Dubai skyline at dusk",
-      activities: ["Burj Khalifa At the Top", "Museum of the Future", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour", "Old Dubai Abra Ride and Souks", "Global Village"],
+      activities: ["Burj Khalifa, 125th Floor", "Desert Safari with BBQ Dinner", "Abu Dhabi Tour with BAPS Mandir", "Dhow Cruise Dinner, Dubai Marina", "Half-day Dubai City Tour", "Dubai Mall and Fountain Show"],
       plan: [
-        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening dhow cruise dinner along Dubai Marina."],
-        ["City tour and desert safari", "Morning Dubai city tour. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
-        ["Burj Khalifa and Dubai Mall", "Free morning for shopping. Evening at Burj Khalifa At the Top and the Dubai Fountain."],
-        ["Museum of the Future", "Morning at the Museum of the Future. Afternoon at leisure at JBR beach or Dubai Marina Walk."],
-        ["Old Dubai and Global Village", "Abra ride across Dubai Creek to the Gold and Spice Souks. Evening at Global Village (open October to May)."],
-        ["Fly home", "Check out and airport drop."]
+        ["Arrive in Dubai", "Airport pick-up at DXB and hotel check-in. Evening dhow cruise with dinner at Dubai Marina, 6 to 10 pm."],
+        ["City tour, Dubai Mall and Burj Khalifa", "Half-day Dubai city tour, 9 am to 2 pm. Afternoon at Dubai Mall and the Fountain show, then Burj Khalifa At the Top, 125th floor, in the 8 pm slot."],
+        ["Desert safari", "Free morning. Desert safari with BBQ dinner, 3:30 to 9:30 pm."],
+        ["Abu Dhabi day trip", "Abu Dhabi city tour with a visit to the BAPS Hindu Mandir, 10 am to 7 pm."],
+        ["Fly home", "Check out and drop at DXB airport."]
       ]
     },
     {
-      id: "family", name: "Dubai Family Fun", nights: 6, hotel: 4, transfers: "Shared",
-      price: 74999, tags: ["family"], flag: "Family pick",
+      id: "dubai-5n", name: "Dubai Explorer", nights: 5,
+      route: "Dubai, with an Abu Dhabi day trip",
+      price: 55000, flag: "Best for first-timers",
+      img: "photo-1768463852019-4881a17a1c0e", alt: "A boat on the water in front of Dubai Marina towers at sunset",
+      activities: ["Dubai Frame", "Miracle Garden", "Global Village", "Abu Dhabi Tour with BAPS Mandir", "Burj Khalifa, 125th Floor", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Dubai Marina", "Half-day Dubai City Tour", "Dubai Mall and Fountain Show"],
+      plan: [
+        ["Arrive in Dubai", "Airport pick-up at DXB and hotel check-in. Evening dhow cruise with dinner at Dubai Marina, 6 to 10 pm."],
+        ["City tour, Dubai Mall and Burj Khalifa", "Half-day Dubai city tour, 9 am to 2 pm. Afternoon at Dubai Mall and the Fountain show, then Burj Khalifa At the Top, 125th floor, in the 8 pm slot."],
+        ["Dubai Frame and desert safari", "Dubai Frame, 10 am to 1 pm. Afternoon desert safari with BBQ dinner, 3:30 to 10 pm."],
+        ["Miracle Garden and Global Village", "Afternoon at Dubai Miracle Garden, then the evening at Global Village, 2:30 to 9:30 pm. Both are open roughly October to May."],
+        ["Abu Dhabi day trip", "Abu Dhabi city tour with a visit to the BAPS Hindu Mandir, 10 am to 7 pm."],
+        ["Fly home", "Check out and drop at DXB airport."]
+      ]
+    },
+    {
+      id: "dubai-6n", name: "Dubai with Atlantis", nights: 6,
+      route: "Dubai, with an Abu Dhabi day trip",
+      price: 70000, flag: "Includes Atlantis",
       img: "photo-1786991810391-e28ee367c3aa", alt: "Aerial view of Atlantis The Royal resort on Palm Jumeirah",
-      activities: ["Aquaventure Waterpark, Atlantis", "IMG Worlds of Adventure", "Dubai Aquarium and Underwater Zoo", "Burj Khalifa At the Top", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Marina", "Dubai City Tour"],
+      activities: ["Atlantis Marine and Waterpark Day Pass", "Miracle Garden", "Global Village", "Abu Dhabi Tour with BAPS Mandir", "Burj Khalifa, 125th Floor", "Desert Safari with BBQ Dinner", "Dhow Cruise Dinner, Dubai Marina", "Half-day Dubai City Tour", "Dubai Mall and Fountain Show"],
       plan: [
-        ["Arrive in Dubai", "Airport pick-up and hotel check-in. Evening at leisure."],
-        ["City tour and desert safari", "Morning Dubai city tour. Afternoon desert safari with dune drive, camel ride and BBQ dinner."],
-        ["Aquarium and Burj Khalifa", "Dubai Aquarium and Underwater Zoo, then Burj Khalifa At the Top and the Dubai Fountain."],
-        ["Aquaventure at Atlantis", "A full day at Aquaventure Waterpark on Palm Jumeirah."],
-        ["IMG Worlds of Adventure", "A full day at the indoor theme park, with rides for all ages."],
-        ["Shopping and dhow cruise", "Free day for the malls and souks. Evening dhow cruise dinner along Dubai Marina."],
-        ["Fly home", "Check out and airport drop."]
-      ]
-    },
-    {
-      id: "luxury", name: "Dubai Luxury Escape", nights: 5, hotel: 5, transfers: "Private",
-      price: 109999, tags: ["honeymoon", "couple"], flag: "Luxury",
-      img: "photo-1546412414-e1885259563a", alt: "Burj Al Arab hotel on the Jumeirah coast",
-      activities: ["Burj Khalifa At the Top SKY, 148th floor", "Private Desert Safari", "Aquaventure Waterpark, Atlantis", "Museum of the Future", "Dhow Cruise Dinner, Marina"],
-      plan: [
-        ["Arrive in Dubai", "Private airport pick-up and check-in at a 5-star beach resort. Evening at leisure."],
-        ["Private desert safari", "Afternoon desert safari in a private 4x4, with dinner at a desert camp."],
-        ["Burj Khalifa SKY", "Burj Khalifa At the Top SKY on the 148th floor, then the Dubai Fountain show."],
-        ["Atlantis day", "Aquaventure Waterpark, or a slow beach day at your resort."],
-        ["Museum of the Future and dhow dinner", "Morning at the Museum of the Future. Evening dhow cruise dinner along Dubai Marina."],
-        ["Fly home", "Check out and private airport drop."]
+        ["Arrive in Dubai", "Airport pick-up at DXB and hotel check-in. Evening dhow cruise with dinner at Dubai Marina, 6 to 10 pm."],
+        ["City tour, Dubai Mall and Burj Khalifa", "Half-day Dubai city tour, 9 am to 2 pm. Afternoon at Dubai Mall and the Fountain show, then Burj Khalifa At the Top, 125th floor, in the 8 pm slot."],
+        ["Miracle Garden and Global Village", "Afternoon at Dubai Miracle Garden, then the evening at Global Village, 2 to 9:30 pm. Both are open roughly October to May."],
+        ["Atlantis The Palm", "A full day at Atlantis The Palm on Palm Jumeirah, with a day pass to its marine park and waterpark."],
+        ["Desert safari", "Free morning. Desert safari with BBQ dinner, 3:30 to 9:30 pm."],
+        ["Abu Dhabi day trip", "Abu Dhabi city tour with a visit to the BAPS Hindu Mandir, 10 am to 7 pm."],
+        ["Fly home", "Check out and drop at DXB airport."]
       ]
     }
   ]
@@ -791,7 +792,7 @@ select.ctl option{color:var(--ink)}
           <details><summary>Do you arrange the UAE visa?</summary><div class="ans"><p>Yes. Send us passport and photo scans and our team files your UAE tourist visa. Your passport needs to be valid for at least 6 months from your travel date.</p></div></details>
           <details><summary>How do I pay?</summary><div class="ans"><p>Pay 25% to confirm your booking. The balance is due 30 days before you travel. If you book within 30 days of travel, the full amount is due at booking.</p></div></details>
           <details><summary>Is the food veg-friendly?</summary><div class="ans"><p>Yes. Dubai has plenty of Indian restaurants, and the desert safari and dhow cruise dinners have vegetarian options. Ask for Jain meals when you book.</p></div></details>
-          <details><summary>Is Dubai good for kids and parents?</summary><div class="ans"><p>Very. Distances are short and the city is easy to get around. For families we suggest the Dubai Family Fun package, with water park, aquarium and theme park days built in.</p></div></details>
+          <details><summary>Is Dubai good for kids and parents?</summary><div class="ans"><p>Very. Distances are short and the city is easy to get around. For families we suggest the 6-night Dubai with Atlantis package, which adds a full day at Atlantis The Palm's marine park and waterpark.</p></div></details>
           <details><summary>What if I need to cancel?</summary><div class="ans"><p>Refunds depend on how close to travel you cancel. Read the <a class="js-cancel" href="https://glabol.com/cancellation-policy" target="_blank" rel="noopener">cancellation policy</a>, and your trip planner will walk you through it before you pay.</p></div></details>
         </div>
       </div>
@@ -1012,41 +1013,57 @@ select.ctl option{color:var(--ink)}
     video.load();
   })();
 
-  /* ---------- Variant (?trip=) ---------- */
-  var variantKey = (params.trip || "").toLowerCase();
-  var variant = CFG.VARIANTS[variantKey] || null;
+  /* ---------- Ad group variant: headline, form title, first package (see VARIANTS) ---------- */
+  function wordsOf(t){ return " " + String(t || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim() + " "; }
+  function findVariant(){
+    var V = CFG.VARIANTS || {}, keys = Object.keys(V), own = Object.prototype.hasOwnProperty, i, j;
+    var named = [param("utm_content"), param("trip")];
+    for (i = 0; i < named.length; i++) { var n = named[i].toLowerCase(); if (n && own.call(V, n)) return n; }
+    var ag = param("adgroupid", "adset_id", "adgroup_id");
+    if (ag) for (i = 0; i < keys.length; i++) if ((V[keys[i]].adgroups || []).indexOf(ag) > -1) return keys[i];
+    var texts = [param("utm_content"), param("trip"), param("utm_campaign"), param("kw", "utm_term")];
+    for (i = 0; i < texts.length; i++) {
+      if (!texts[i]) continue;
+      var t = wordsOf(texts[i]);
+      for (j = 0; j < keys.length; j++) {
+        if ((V[keys[j]].words || []).some(function(w){ return t.indexOf(wordsOf(w)) > -1; })) return keys[j];
+      }
+    }
+    return "";
+  }
+  var variantKey = findVariant();
+  var variant = variantKey ? CFG.VARIANTS[variantKey] : null;
+  var FROM_PRICE = inr(Math.min.apply(null, PACKAGES.map(function(p){ return p.price; })));
+  var FORM_TITLE = (variant && variant.form) || "Get your Dubai plan and price";
   if (variant) {
-    $("h1").textContent = variant.h1;
-    document.title = variant.h1 + " | Glabol";
+    var headline = variant.h1.replace("{from}", FROM_PRICE);
+    $("h1").textContent = headline;
+    document.title = headline + " | Glabol";
   }
 
-  // Packages that match the ad's ?trip= go first; every package is always shown
-  function fitsVariant(p){
-    if (!variant) return false;
-    if (variant.tag) return p.tags.indexOf(variant.tag) > -1;
-    if (variant.hotel) return p.hotel === variant.hotel;
-    return false;
-  }
-  var ORDERED = PACKAGES.filter(fitsVariant).concat(PACKAGES.filter(function(p){ return !fitsVariant(p); }));
+  // The ad group's pick is listed first, with its ribbon; every package is always shown
+  var pick = variant && variant.pick ? byId(variant.pick[0]) : null;
+  var ORDERED = pick ? [pick].concat(PACKAGES.filter(function(p){ return p !== pick; })) : PACKAGES.slice();
+  function flagFor(p){ return p === pick ? variant.pick[1] : p.flag; }
 
   /* ---------- Package cards ---------- */
   var CHECK = '<svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 2.9 7-7.1" fill="none" stroke="#09B367" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function perNight(p){ return p.nights + " nights / person"; }
   function emiLine(p){ return CFG.EMI_MONTHS > 0 ? '<span class="emi">' + inr(Math.ceil(p.price / CFG.EMI_MONTHS)) + '/m with no cost EMI</span>' : ""; }
   function card(p){
-    var more = p.activities.length - 2;
+    var more = p.activities.length - 2, flag = flagFor(p);
     return '<article class="pc" aria-labelledby="pcn-' + p.id + '">' +
       '<div class="pc-main">' +
         '<figure class="pc-img"><img src="' + pic(p.img, 720, 480) + '" srcset="' + pic(p.img, 480, 320) + ' 480w, ' + pic(p.img, 720, 480) + ' 720w, ' + pic(p.img, 1000, 660) + ' 1000w" sizes="(min-width:1000px) 460px, (min-width:720px) 52vw, 100vw" alt="' + esc(p.alt) + '" loading="lazy" width="720" height="480">' +
-          (p.flag ? '<span class="pc-flag"><svg width="10" height="11" viewBox="0 0 11 12" aria-hidden="true"><path d="M1 12V1h8.5L7.5 4.2 9.5 7.5H2" fill="#073B22"/></svg>' + esc(p.flag) + '</span>' : '') +
+          (flag ? '<span class="pc-flag"><svg width="10" height="11" viewBox="0 0 11 12" aria-hidden="true"><path d="M1 12V1h8.5L7.5 4.2 9.5 7.5H2" fill="#073B22"/></svg>' + esc(flag) + '</span>' : '') +
           '<span class="pc-len">' + p.nights + 'N / ' + (p.nights + 1) + 'D</span></figure>' +
         '<div class="pc-body">' +
           '<h3 class="pc-name" id="pcn-' + p.id + '">' + esc(p.name) + '</h3>' +
-          '<p class="pc-nights"><b>' + p.nights + ' nights:</b> Dubai (' + p.nights + 'N)</p>' +
+          '<p class="pc-nights"><b>' + p.nights + ' nights:</b> ' + esc(p.route) + '</p>' +
           '<ul class="pc-inc">' +
-            '<li>' + CHECK + '<span>' + p.hotel + '<span class="st" aria-hidden="true">★</span><span class="vh"> star</span> Hotel</span></li>' +
+            '<li>' + CHECK + '<span>' + (p.hotel ? p.hotel + '<span class="st" aria-hidden="true">★</span><span class="vh"> star</span> ' : '') + 'Hotel</span></li>' +
             '<li>' + CHECK + '<span>' + p.activities.length + ' activities</span></li>' +
-            '<li>' + CHECK + '<span>' + esc(p.transfers) + ' transfers</span></li>' +
+            '<li>' + CHECK + '<span>Transfers</span></li>' +
             '<li>' + CHECK + '<span>UAE visa</span></li>' +
           '</ul>' +
           '<div class="pc-price-row">' +
@@ -1114,6 +1131,7 @@ select.ctl option{color:var(--ink)}
       var err = slot.querySelector('[data-fld="' + key + '"] [data-err]'); err.id = id + "-err"; inp.setAttribute("aria-describedby", err.id);
     });
     if (where === "popup") slot.querySelector("[data-title]").id = "leadDlgTitle";
+    slot.querySelector("[data-title]").textContent = FORM_TITLE;
     var monthSel = slot.querySelector('[data-id="month"]'), now = new Date();
     for (var i = 0; i < 6; i++) { var d = new Date(now.getFullYear(), now.getMonth() + i, 1); monthSel.add(new Option(MONTHS[d.getMonth()] + " " + d.getFullYear())); }
     monthSel.add(new Option("Later")); monthSel.add(new Option("Not decided"));
@@ -1332,7 +1350,7 @@ select.ctl option{color:var(--ink)}
   function openLead(where, p, opener){
     if (p !== undefined) setPackage(p);
     var F = forms.filter(function(x){ return x.where === "popup"; })[0];
-    F.root.querySelector("[data-title]").textContent = p ? "Customize " + p.name : "Get your Dubai plan and price";
+    F.root.querySelector("[data-title]").textContent = p ? "Customize " + p.name : FORM_TITLE;
     openDlg(leadDlg, opener);
     if (!F.form.hidden) setTimeout(function(){ F.input("name").focus(); }, 30);
     track("cta_click", { cta_location: where, package_id: p ? p.id : "" });
@@ -1343,7 +1361,7 @@ select.ctl option{color:var(--ink)}
     itinPkg = p;
     $("itinImg").src = pic(p.img, 900, 320);
     $("itinTitle").textContent = p.name + ", " + p.nights + "N/" + (p.nights + 1) + "D";
-    $("itinRoute").textContent = "Dubai (" + p.nights + "N), " + p.hotel + "-star hotel, " + p.transfers.toLowerCase() + " transfers";
+    $("itinRoute").textContent = p.route + ". Hotel and transfers included.";
     $("itinDays").innerHTML = p.plan.map(function(d, i){ return '<li><span class="dn">Day ' + (i + 1) + '</span><div><h4>' + esc(d[0]) + '</h4><p>' + esc(d[1]) + '</p></div></li>'; }).join("");
     $("itinSmall").textContent = "Includes hotel with breakfast, airport transfers, UAE visa and entry tickets for everything above. International flights extra.";
     $("itinPrice").textContent = inr(p.price);
