@@ -49,6 +49,8 @@ const COLUMNS = [
   ["Ad ID", "ad_id"],
   ["Keyword", "keyword"],
   ["GCLID", "gclid"],                   // for importing offline conversions into Google Ads later
+  ["GBRAID", "gbraid"],                 // iPhone ad clicks often have no GCLID; these two stand in for it
+  ["WBRAID", "wbraid"],
   ["Landing page", "landing_url"],
   ["Form", "form_location"],            // hero = top form, final = bottom form
   ["Lead ID", "lead_id"],               // links the thank-you page answers to this row
