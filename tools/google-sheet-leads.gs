@@ -1,9 +1,9 @@
 /** @OnlyCurrentDoc */
 /*
  * Glabol Dubai landing page → Google Sheet
- * Every enquiry becomes a row in the sheet, and you get an email alert for each one.
- * The thank-you page then asks 3 qualifying questions; the answers and a lead quality
- * (Hot / Warm / Cold) are added to the same row.
+ * Every enquiry (name, phone, email) becomes a row in the sheet, and you get an email alert
+ * for each one. The thank-you card then asks travel month, travellers and 3 qualifying
+ * questions; the answers and a lead quality (Hot / Warm / Cold) are added to the same row.
  *
  * ONE-TIME SETUP (about 5 minutes)
  *  1. Open sheets.new and name the sheet "Dubai Landing Page Leads Glabol India".
@@ -36,6 +36,7 @@ const COLUMNS = [
   ["Timestamp", "timestamp"],
   ["Name", "name"],
   ["Phone", "phone"],
+  ["Email", "email"],                   // optional on the form; added on the right in an existing sheet
   ["Travel month", "month"],
   ["Travellers", "group_size"],
   ["Lead quality", "lead_quality"],     // Hot / Warm / Cold / Partial / Not answered
@@ -64,6 +65,11 @@ const ANSWERS = {
   call_time: ["Morning", "Afternoon", "Evening", "Anytime"],
   lead_quality: ["Hot", "Warm", "Cold", "Partial"],
 };
+// Trip details tapped on the thank-you card. Travel month is "Nov 2026"-style or "Not decided".
+const TRIP = {
+  month: (v) => /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) 20\d\d$|^Not decided$|^Later$/.test(v),
+  group_size: (v) => ["Just me", "2 people", "3–4 people", "5–8 people", "9 or more"].includes(v),
+};
 const LEAD_ID = /^[0-9a-f-]{32,36}$/i;
 
 function doPost(e) {
@@ -74,6 +80,7 @@ function doPost(e) {
   COLUMNS.forEach(([, key]) => {
     if (key !== "timestamp" && !(key in ANSWERS)) lead[key] = String(p[key] || "").trim().slice(0, 500);
   });
+  if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(lead.email)) lead.email = "";
   if (!LEAD_ID.test(lead.lead_id)) lead.lead_id = "";
   lead.lead_quality = "Not answered";   // filled in once they answer on the thank-you page
 
@@ -97,13 +104,14 @@ function doPost(e) {
   return text_("ok");
 }
 
-// Thank-you page answers: update the lead's row. Only the answer and quality cells are
-// written, never the name or phone, and only with the exact values in ANSWERS.
+// Thank-you page answers: update the lead's row. Only the answer, trip and quality cells are
+// written, never the name or phone, and only with the exact values in ANSWERS and TRIP.
 function saveAnswers_(p) {
   const id = String(p.lead_id || "");
   const seq = Number(p.seq);
   const answers = {};
   Object.keys(ANSWERS).forEach((key) => { if (ANSWERS[key].includes(p[key])) answers[key] = p[key]; });
+  Object.keys(TRIP).forEach((key) => { if (p[key] && TRIP[key](p[key])) answers[key] = p[key]; });
   if (!LEAD_ID.test(id) || !(seq >= 1) || !Object.keys(answers).length) return text_("rejected");
 
   const lock = LockService.getScriptLock();
@@ -219,9 +227,10 @@ function sendAlert_(lead) {
     const body = [
       `Name: ${lead.name}`,
       `Phone: ${lead.phone}`,
+      `Email: ${lead.email || "-"}`,
       `WhatsApp: https://wa.me/${lead.phone.replace(/\D/g, "")}`,
-      `Travel month: ${lead.month}`,
-      `Travellers: ${lead.group_size}`,
+      `Travel month: ${lead.month || "asked on the thank-you card, see the sheet"}`,
+      `Travellers: ${lead.group_size || "asked on the thank-you card, see the sheet"}`,
       "",
       `Source / Medium: ${lead.source} / ${lead.medium}`,
       `Campaign ID: ${lead.campaign_id || "-"}`,
@@ -233,7 +242,7 @@ function sendAlert_(lead) {
       `Lead quality and answers appear in the sheet if they answer the questions on the thank-you page.`,
       `All leads: ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}`,
     ].join("\n");
-    MailApp.sendEmail({ to, subject: `New Dubai lead: ${lead.name} (${lead.month})`, body, name: "Glabol leads" });
+    MailApp.sendEmail({ to, subject: `New Dubai lead: ${lead.name}${lead.month ? " (" + lead.month + ")" : ""}`, body, name: "Glabol leads" });
   } catch (err) {
     // e.g. Gmail's daily limit (100 alerts a day on a free account). The lead is already saved.
     console.error("Email alert failed", err);
