@@ -45,6 +45,7 @@ window.GLABOL_DUBAI = {
   SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbznXXph5vdfO9ksh9IXBx4naiR25P3bMXk_aHdvELi663WDAuK5umD47GcKEJ6WJO97/exec",   // "Dubai Google Ads Leads Glabol India" sheet
   CRM_WEBHOOK_URL: "https://crm.glabol.com/api/webhooks/leads/intake?secret=xq6z371n9a",
   CRM_API_KEY: "xq6z371n9a",
+  CRM_SEND_TRIP_DETAILS: true,   // after the lead, send travel month + travellers to the CRM once both are tapped
   DESTINATION: "Dubai",
   GTM_ID: "GTM-TTXFHSF9",
   FORM_NAME: "dubai_lp_v2",
@@ -307,6 +308,8 @@ a{color:inherit}
 @media (min-width:520px){.qbody{padding:54px 24px 20px}}
 .qtitle{margin:0;font-size:21px;font-weight:800;color:var(--title);letter-spacing:-.01em;line-height:1.25}
 .qlede{margin:4px 0 0;font-size:14px;color:var(--ink-3)}
+@media (max-width:519px){.qlede{display:none}}
+.fld label small{font-weight:600;color:var(--ink-3)}
 .qpkg{display:flex;align-items:center;gap:10px;margin:12px 0 0;padding:8px 8px 8px 12px;border-radius:10px;background:var(--green-50);font-size:14px;color:var(--ink-2)}
 .qpkg b{color:var(--title)}
 .qpkg button{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--ink-2)}
@@ -889,7 +892,7 @@ select.ctl option{color:var(--ink)}
   <form class="qform" novalidate>
     <div class="qbody">
       <h2 class="qtitle" data-title>Get your Dubai plan and price</h2>
-      <p class="qlede">A day-by-day plan and the full price for your dates. Free, with no obligation to book.</p>
+      <p class="qlede">A day-by-day plan and the full price for your trip. Free, with no obligation to book.</p>
       <div class="qpkg" data-pkg hidden>
         <span>Package: <b data-pkg-name></b></span>
         <button type="button" data-pkg-x aria-label="Remove this package from the quote"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
@@ -905,17 +908,9 @@ select.ctl option{color:var(--ink)}
           <div class="tel"><span aria-hidden="true">+91</span><input class="ctl" data-id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="14" placeholder="98765 43210"></div>
           <span class="fld-err" data-err hidden></span>
         </div>
-        <div class="fld" data-fld="month">
-          <label data-for="month">Travel month</label>
-          <select class="ctl" data-id="month" name="month" required><option value="" disabled selected>Select</option></select>
-          <span class="fld-err" data-err hidden></span>
-        </div>
-        <div class="fld" data-fld="pax">
-          <label data-for="pax">Travellers</label>
-          <select class="ctl" data-id="pax" name="pax" required>
-            <option value="" disabled selected>Select</option>
-            <option>Just me</option><option>2 people</option><option>3–4 people</option><option>5–8 people</option><option>9 or more</option>
-          </select>
+        <div class="fld fld-wide" data-fld="email">
+          <label data-for="email">Email <small>(optional)</small></label>
+          <input class="ctl" data-id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="120" placeholder="you@example.com">
           <span class="fld-err" data-err hidden></span>
         </div>
       </div>
@@ -927,10 +922,16 @@ select.ctl option{color:var(--ink)}
   <div class="done" data-done hidden>
     <div class="qbody">
       <div class="done-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M5.5 11.5l3.6 3.5 7.4-7.6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h2 class="done-title" data-done-title tabindex="-1">Thanks. We've got your dates.</h2>
+      <h2 class="done-title" data-done-title tabindex="-1">Thanks. We've got your details.</h2>
       <p class="done-text" data-done-text></p>
       <div class="extra">
-        <p class="extra-intro">3 quick questions so your trip planner can plan the call.</p>
+        <p class="extra-intro">A few quick taps so your trip planner can plan your trip.</p>
+        <fieldset><legend>When do you want to travel?</legend>
+          <div class="chips" data-q="month"></div>
+        </fieldset>
+        <fieldset><legend>How many people are travelling?</legend>
+          <div class="chips" data-q="pax"><button type="button" class="chip" aria-pressed="false" value="Just me">Just me</button><button type="button" class="chip" aria-pressed="false" value="2 people">2 people</button><button type="button" class="chip" aria-pressed="false" value="3–4 people">3–4</button><button type="button" class="chip" aria-pressed="false" value="5–8 people">5–8</button><button type="button" class="chip" aria-pressed="false" value="9 or more">9 or more</button></div>
+        </fieldset>
         <fieldset><legend data-budget-q>Packages start at ₹45,000 per person, without flights. Does that fit your budget?</legend>
           <div class="chips" data-q="budget_fit"><button type="button" class="chip" aria-pressed="false" value="Fits">Yes, that fits</button><button type="button" class="chip" aria-pressed="false" value="A bit high, but open">A bit high, but I'm open</button><button type="button" class="chip" aria-pressed="false" value="Too high">I need something cheaper</button></div>
         </fieldset>
@@ -1108,12 +1109,11 @@ select.ctl option{color:var(--ink)}
     if (d.length === 11 && d.charAt(0) === "0") d = d.slice(1);
     return d;
   }
-  var KEYS = ["name", "phone", "month", "pax"];
+  var KEYS = ["name", "phone", "email"];
   function check(key, v){
     if (key === "name") return v.trim().length >= 2 ? "" : "Enter your name.";
     if (key === "phone") return /^[6-9]\d{9}$/.test(normPhone(v)) ? "" : "Enter a 10-digit mobile number.";
-    if (key === "month") return v ? "" : "Pick a month.";
-    if (key === "pax") return v ? "" : "Pick travellers.";
+    if (key === "email") return !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Check your email, or leave it blank.";
     return "";
   }
 
@@ -1131,9 +1131,11 @@ select.ctl option{color:var(--ink)}
     });
     if (where === "popup") slot.querySelector("[data-title]").id = "leadDlgTitle";
     slot.querySelector("[data-title]").textContent = FORM_TITLE;
-    var monthSel = slot.querySelector('[data-id="month"]'), now = new Date();
-    for (var i = 0; i < 6; i++) { var d = new Date(now.getFullYear(), now.getMonth() + i, 1); monthSel.add(new Option(MONTHS[d.getMonth()] + " " + d.getFullYear())); }
-    monthSel.add(new Option("Later")); monthSel.add(new Option("Not decided"));
+    // Travel month chips on the thank-you card: this month and the next 5, then "Not decided"
+    var monthBox = slot.querySelector('[data-q="month"]'), now = new Date(), mlist = [];
+    for (var i = 0; i < 6; i++) { var d = new Date(now.getFullYear(), now.getMonth() + i, 1); mlist.push(MONTHS[d.getMonth()] + " " + d.getFullYear()); }
+    mlist.push("Not decided");
+    monthBox.innerHTML = mlist.map(function(m){ return '<button type="button" class="chip" aria-pressed="false" value="' + m + '">' + m + '</button>'; }).join("");
     F.input = function(k){ return slot.querySelector('[data-id="' + k + '"]'); };
     F.setErr = function(k, msg){
       var f = slot.querySelector('[data-fld="' + k + '"]'), e = f.querySelector("[data-err]"), inp = F.input(k);
@@ -1223,9 +1225,8 @@ select.ctl option{color:var(--ink)}
   // Resolves true when the CRM accepted the lead.
   function postLeadToCRM(l){
     var body = {
-      name: l.name, phone: l.phone, email: "", destination: CFG.DESTINATION,
-      message: "Interested in " + CFG.DESTINATION + " package" + (l.package_label ? ": " + l.package_label : "") +
-        ". Travel month: " + l.month + ". Travellers: " + l.pax + ".",
+      name: l.name, phone: l.phone, email: l.email || "", destination: CFG.DESTINATION,
+      message: l.message || ("Interested in " + CFG.DESTINATION + " package" + (l.package_label ? ": " + l.package_label : "") + "."),
       host: location.hostname, source: crmSource(attribution)
     };
     if (TEST_MODE || !CFG.CRM_WEBHOOK_URL) {
@@ -1252,7 +1253,7 @@ select.ctl option{color:var(--ink)}
     lead = {
       where: F.where,
       name: F.input("name").value.trim().replace(/\s+/g, " "),
-      phone: "+91" + phone10, month: F.input("month").value, pax: F.input("pax").value,
+      phone: "+91" + phone10, email: F.input("email").value.trim().toLowerCase(),
       package_id: chosen ? chosen.id : "",
       package_label: chosen ? chosen.name + " " + chosen.nights + "N/" + (chosen.nights + 1) + "D" : "",
       price: chosen ? chosen.price : null
@@ -1264,8 +1265,8 @@ select.ctl option{color:var(--ink)}
     // Same columns as the Kashmir and Himachal sheets. "Form" says where the enquiry came from,
     // plus the package when the visitor clicked Customize on one.
     var sheetRow = {
-      lead_id: leadId, name: lead.name, phone: lead.phone,
-      month: lead.month, group_size: lead.pax,
+      lead_id: leadId, name: lead.name, phone: lead.phone, email: lead.email,
+      month: "", group_size: "",
       form_location: CFG.DESTINATION + " " + F.where + (lead.package_label ? " - " + lead.package_label : "")
     };
     Object.keys(attribution).forEach(function(k){ sheetRow[k] = attribution[k]; });
@@ -1278,7 +1279,8 @@ select.ctl option{color:var(--ink)}
     sheetReady = sheetSent.catch(function(err){ if (window.console) console.error("[Glabol Dubai] Sheet post failed:", err); });
     postLeadToCRM(lead).then(function(crmOk){ return crmOk ? null : sheetSent; }).then(function(){
       // The events every destination page sends; the existing GTM tags fire on them unchanged
-      track("lead_form_submit", { lead_id: leadId, user_data: { phone_number: lead.phone } });
+      var ud = { phone_number: lead.phone }; if (lead.email) ud.email_address = lead.email;
+      track("lead_form_submit", { lead_id: leadId, user_data: ud });
       track("thank_you_page_view", { lead_id: leadId, transaction_id: leadId });
       showDone(phone10, F);
     }).catch(function(){
@@ -1295,7 +1297,7 @@ select.ctl option{color:var(--ink)}
     var budgetQ = (lead.package_label ? lead.package_label + " is " + inr(lead.price) : "Packages start at " + $("fromPrice").textContent) +
       " per person, without flights. Does that fit your budget?";
     forms.forEach(function(F){
-      F.root.querySelector("[data-done-title]").textContent = "Thanks, " + first + ". We've got your dates.";
+      F.root.querySelector("[data-done-title]").textContent = "Thanks, " + first + ". We've got your details.";
       F.root.querySelector("[data-done-text]").textContent = "Our trip planner will call you on " + masked + " with your Dubai plan and price.";
       F.root.querySelector("[data-budget-q]").textContent = budgetQ;
       F.form.hidden = true;
@@ -1315,6 +1317,15 @@ select.ctl option{color:var(--ink)}
     if (!a.budget_fit || !a.booking_timeline) return "Partial";
     return a.booking_timeline === "Just exploring" ? "Warm" : "Hot";
   }
+  var tripSent = false;
+  function sendTripToCRM(){
+    // Once per lead. The CRM files it under the same lead (it matches leads by phone number).
+    if (tripSent || !answers.month || !answers.pax || CFG.CRM_SEND_TRIP_DETAILS === false) return;
+    tripSent = true;
+    postLeadToCRM({ name: lead.name, phone: lead.phone, email: lead.email,
+      message: CFG.DESTINATION + " trip details. Travel month: " + answers.month + ". Travellers: " + answers.pax + "." });
+    track("lead_trip_details", { lead_id: leadId, travel_month: answers.month, group_size: answers.pax });
+  }
   function onAnswer(e){
     var chip = e.target.closest(".chip"); if (!chip || !lead) return;
     var key = chip.parentNode.getAttribute("data-q"), val = chip.value;
@@ -1327,6 +1338,9 @@ select.ctl option{color:var(--ink)}
     });
     var row = { type: "qualify", lead_id: leadId, seq: seq, lead_quality: quality };
     QUESTIONS.forEach(function(q){ if (answers[q]) row[q] = answers[q]; });
+    if (answers.month) row.month = answers.month;
+    if (answers.pax) row.group_size = answers.pax;
+    sendTripToCRM();
     // Waits for the lead's own row, so an answer tapped straight away still finds it
     sheetReady.then(function(){ return postToSheet(row); }).catch(function(err){ if (window.console) console.error(err); });
 
